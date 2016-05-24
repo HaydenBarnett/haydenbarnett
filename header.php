@@ -24,7 +24,7 @@
     </script>
     
 </head>
-<body <?php body_class(); ?>>
+<body <?php body_class('body-slide'); ?>>
 
     <header id="header">
 
@@ -37,10 +37,6 @@
                     <div class="logo">
                         <a href="<?php echo esc_url(home_url('/')); ?>">H<span class="first">ayden</span>B<span class="second">arnett</span><span class="dot">.</span></a>
                     </div>
-
-                    <nav id="menu">
-                        <?php primary_menu(); ?>
-                    </nav>
 
                     <a href="javascript:void(0)" class="hamburger"> 
                         <div class="menu-bar bar-1"></div>
@@ -55,5 +51,14 @@
         </div>
 
     </header>
+
+    <nav id="slide-menu">
+        <div id="photo-container">
+            <img id="photo" src="<?php echo esc_url(get_template_directory_uri()); ?>/img/photo.png" alt="Hayden">
+        </div>
+        <div id="menu">
+            <?php primary_menu(); ?>
+        </div>
+    </nav>
 
     <div id="content">

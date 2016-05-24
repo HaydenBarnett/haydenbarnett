@@ -4,10 +4,23 @@
     // Toggle mobile menu
 
 	$(".hamburger").click(function () {
-        $("#menu").toggleClass('active');
-        $(".hamburger").toggleClass("active");
+        toggleMenu();
         return false;
     });
+
+    $('#overlay').click(function() {
+        toggleMenu();
+        return false;
+    })
+
+    function toggleMenu() {
+        $('#overlay').toggleClass('active');
+        $(".hamburger").toggleClass("active");
+        $('body').toggleClass('body-slide-left'); // cbp-spmenu-push-toleft
+        $('#slide-menu').toggleClass('menu-open');
+        $('#showRightPush').toggleClass('active');
+        $('#showRightPush').toggleClass('disabled');
+    }
 
     $(function() {
         $('a[href*="#"]:not([href="#"])').click(function() {
@@ -23,5 +36,6 @@
             }
         });
     });
+
 
 }(jQuery));

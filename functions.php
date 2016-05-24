@@ -171,11 +171,12 @@ function set_excerpt_more( $more ) {
 function set_login_logo() { ?> 
     <style type="text/css"> 
         #login h1 a { 
-            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/symbol.png);
+            background-image: url(<?php echo get_stylesheet_directory_uri(); ?>/img/photo.png);
             -webkit-background-size: 140px;
             background-size: 140px;
             height: 140px;
             width: auto;
+            outline: 0;
         }
     </style>
 <?php } add_action( 'login_enqueue_scripts', 'set_login_logo' );

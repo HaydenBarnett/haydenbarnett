@@ -2,30 +2,20 @@
 
     <?php while ( have_posts() ) : the_post(); ?>
 
-        <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+        <?php get_template_part('partials/section', 'content'); ?>
 
-            <div class="container">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
 
-                <div class="row">
-
-                    <div class="col-md-12">
-
-                        <div class="page-title">
-                            <h1><?php the_title(); ?></h1>
-                        </div>
-
-                        <div class="page-content">
-                            <?php the_content(); ?>
-                        </div>
-
-                    </div>
+                    <hr class="large">
 
                 </div>
-
             </div>
+        </div>
 
-        </section>
+        <?php get_template_part('partials/section', 'navigation'); ?>
 
     <?php endwhile; ?>
-    
+
 <?php get_footer(); ?>

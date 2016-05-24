@@ -21,6 +21,8 @@
 
     </footer>
 
+    <div id="overlay"></div>
+
     <?php wp_footer(); ?>
 
     <script>
