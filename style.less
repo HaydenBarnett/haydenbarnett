@@ -2,7 +2,7 @@
     Theme Name: Hayden Barnett
     Theme URI: http://github.com/haydenbarnett/haydenbarnett
     Description: www.haydenbarnett.com
-    Version: 0.2
+    Version: 0.3
     Author: Hayden Barnett
     Author URI: http://haydenbarnett.com/
     Tags: 
@@ -15,8 +15,6 @@
 /* --------------------------------------------------------------
    Variables
    -------------------------------------------------------------- */
-
-@color-primary: #3498db;
 
 @color-white: #fff;
 @color-off-white: #f5f5f5;
@@ -37,8 +35,8 @@
 
 @gutter: 7.5px;
 
-@font-family-primary: 'Roboto', 'Helvetica Neue', Helvetica, Arial, sans-serif;
-@font-family-secondary: 'Lora', Times, Times New Roman, serif;
+@font-family-primary: 'Open Sans', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+@font-family-secondary: 'Noto Serif', serif;
 
 
 /* --------------------------------------------------------------
@@ -104,6 +102,7 @@ html {
 body {
     background-color: @color-off-white;
     font-family: @font-family-primary;
+    font-weight: 400;
 }
 
 h1, 
@@ -111,7 +110,7 @@ h2,
 h3 {
     font-family: @font-family-secondary;
     color: @color-off-black;
-    font-weight: normal;
+    font-weight: 400;
     margin: 0;
     padding: 0;
 }
@@ -121,15 +120,16 @@ h5,
 h6 {
     font-family: @font-family-primary;
     color: @color-off-black;
-    font-weight: normal;
-    margin: 0;
+    font-weight: 400;
+    margin: 20px 0 0 0;
     padding: 0;
     text-transform: uppercase;
     letter-spacing: 3px;
 }
+
 h1 {
     font-size: 33px;
-    
+    letter-spacing: .5px;
 }
 h2 {
     font-size: 28px;
@@ -137,9 +137,9 @@ h2 {
 h3 {
     font-size: 22px;
 }
+
 h4 {
     font-size: 28px;
-    
 }
 h5 {
     font-size: 24px;
@@ -172,25 +172,25 @@ hr {
     background-color: @color-silver;
     margin: 60px 0;
     &.large {
-        margin: 200px 0;
+        margin: 200px 0 100px 0;
     }
 }
 
 .delay-1 {
-    -webkit-animation-delay: .2s;
-    animation-delay: .2s;
+    -webkit-animation-delay: .3s;
+    animation-delay: .3s;
 }
 .delay-2 {
-    -webkit-animation-delay: .4s;
-    animation-delay: .4s;
-}
-.delay-3 {
     -webkit-animation-delay: .6s;
     animation-delay: .6s;
 }
-.delay-4 {
+.delay-3 {
     -webkit-animation-delay: .8s;
     animation-delay: .8s;
+}
+.delay-4 {
+    -webkit-animation-delay: 1s;
+    animation-delay: 1s;
 }
 
 
@@ -214,13 +214,12 @@ hr {
         color: @color-off-black;
         font-family: @font-family-secondary;
         font-size: 20px;
-        .transition();
         .first, .second {
             width: 0;
-            letter-spacing: -5px;
+            letter-spacing: -6px;
             display: inline-block;
             opacity: 0;
-            .transition();
+            .transition(0.8s ease all);
         }
         .dot {
             color: fade(@color-off-black, 60%);
@@ -270,7 +269,7 @@ hr {
     overflow-x: hidden;
     position: relative;
     left: 0;
-    .transition(0.8s ease all);
+    .transition(0.8s ease left);
     &.body-slide-left {
         left: -@menu-width;
     }
@@ -284,9 +283,9 @@ hr {
     z-index: 1000;
     right: -@menu-width;
     background: @color-light-grey;
-    // -webkit-box-shadow:inset 80px 0 80px -80px rgba(50,50,50,0.2);
-    // box-shadow:inset 80px 0 80px -80px rgba(50,50,50,0.2);
-    .transition(0.8s ease all);
+    // -webkit-box-shadow:inset 60px 0 60px -60px rgba(30,50,50,0.1);
+    // box-shadow:inset 60px 0 60px -60px rgba(50,50,50,0.1);
+    .transition(0.8s ease right);
     &.menu-open {
         right: 0px;
     }
@@ -310,11 +309,10 @@ hr {
                 margin: 0;
                 color: @color-grey;
                 font-size: 12px;
-                
                 text-transform: uppercase;
                 letter-spacing: 2px;
                 border-left: 2px solid @color-silver;
-                .transition(0.4s ease all);
+                .transition(0.6s ease all);
                 &:hover, &:active, &:focus {
                     color: @color-dark-grey;
                     border-left: 2px solid @color-dark-grey;
@@ -361,12 +359,13 @@ hr {
         letter-spacing: 2px;
         text-transform: uppercase;
         display: inline-block;
+        .transition(0.6s ease color);
         .icon {
             position: relative;
             top: 0;
             display: inline-block;
             padding: 20px 0 0 0;
-            .transition(0.4s ease top);
+            .transition(0.6s ease top);
         }
         &:hover {
             color: @color-dark-grey;
@@ -414,25 +413,31 @@ hr {
         left: 0;
         padding: 45px;
         background-color: fade(@color-off-black, 50%);
-        .transition(0.4s ease opacity);
+        .transition(0.6s ease opacity);
         .tile-info {
             h2 {
+                float: left;
                 color: @color-white;
                 font-size: 20px;
                 letter-spacing: 1px;
                 margin-bottom: 5px;
                 .animated();
+                .delay-1();
             }
             ul {
+                float: left;
+                clear: both;
                 margin: 0;
-                padding-left: 15px;
+                padding-left: 0px;
                 .animated();
-                .delay-1();
+                .delay-2();
                 li {
                     color: @color-white;
                     font-size: 12px;
                     line-height: 22px;
                     letter-spacing: 2px;
+                    list-style: none;
+                    opacity: 0.5;
                 }
             }
         }
@@ -443,7 +448,7 @@ hr {
             left: auto;
             font-size: 24px;
             .animated();
-            .delay-2();
+            .delay-3();
         }
     }
     .tile-background {
@@ -454,24 +459,15 @@ hr {
         bottom: 0;
         left: 0;
         opacity: 0;
-        -webkit-filter: blur(5px);
-        filter: blur(5px);
-        background-image: url(./img/placeholder.jpg);
+        -webkit-filter: blur(6px);
+        filter: blur(6px);
         .background-cover();
-        .transition(1s ease all);
+        .transition(1s ease opacity);
     }
     &:hover {
         .tile-inner {
             opacity: 1;
-            .tile-info {
-                h2 {
-                    .fadeIn();
-                }
-                ul {
-                    .fadeIn();
-                }
-            }
-            .icon {
+            .tile-info h2, .tile-info ul, .icon {
                 .fadeIn();
             }
         }
@@ -490,8 +486,14 @@ hr {
     
 }
 
+
+
 section {
+    position: relative;
     padding: @gutter*2 0;
+    &.project {
+        margin-top: -400px;
+    }
     .page-title {
         margin-bottom: 20px;
         h1, h2, h3, h4, h5, h6 {
@@ -502,7 +504,8 @@ section {
     .page-content {
         h1, h2, h3, h4, h5, h6 {
             max-width: 565px;
-            margin: 0 auto;
+            margin-left: auto;
+            margin-right: auto;
         }
         h1 {
 
@@ -517,9 +520,9 @@ section {
             max-width: 565px;
             margin: 0 auto;
             font-size: 18px;
-            font-weight: 300;
             line-height: 40px;
             letter-spacing: 0.5px;
+            padding-bottom: 10px;
         }
         ul {
             max-width: 565px;
@@ -531,10 +534,20 @@ section {
         blockquote {
 
         }
-        a {
-            border-bottom: 1px solid @color-silver;
-            &:hover {
 
+        a {
+            color: @color-dark-grey;
+            border-bottom: 2px solid @color-silver;
+            .transition(0.8s ease border);
+            &:visited {
+                color: @color-dark-grey;
+                text-decoration: none;
+            }
+            &:hover,
+            &:focus,
+            &:active {
+                color: @color-dark-grey;
+                border-bottom: 2px solid @color-dark-grey;
             }
         }
         img {
@@ -546,7 +559,51 @@ section {
     }
 }
 
+#banner {
+    height: 500px;
+    top: -165px;
+    position: relative;
+    z-index: -1;
+    padding: 0;
+    left: -5%;
+    width: 110%;
+    background: #fff;
+
+    .banner-gradient {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 1;
+
+        background: rgba(248,80,50,0);
+        background: -moz-linear-gradient(top, rgba(248,80,50,0) 0%, rgba(245,245,245,1) 100%);
+        background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(248,80,50,0)), color-stop(100%, rgba(245,245,245,1)));
+        background: -webkit-linear-gradient(top, rgba(248,80,50,0) 0%, rgba(245,245,245,1) 100%);
+        background: -o-linear-gradient(top, rgba(248,80,50,0) 0%, rgba(245,245,245,1) 100%);
+        background: -ms-linear-gradient(top, rgba(248,80,50,0) 0%, rgba(245,245,245,1) 100%);
+        background: linear-gradient(to bottom, rgba(248,80,50,0) 0%, rgba(245,245,245,1) 100%);
+        filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f85032', endColorstr='#f5f5f5', GradientType=0 );
+    }
+
+    .banner-image {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        overflow: hidden;
+
+        filter: blur(16px);
+        -webkit-filter: blur(16px);
+        opacity: 0.5;
+        .background-cover();
+    }
+}
+
 #navigation {
+    padding: 0;
     h6 {
         color: @color-silver;
         margin-bottom: 30px;
@@ -724,10 +781,31 @@ img.zoom-img {
     }
 }
 
-.animsition-loading:after {
-    font-size: 11px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
+
+/* --------------------------------------------------------------
+   Animsition
+   -------------------------------------------------------------- */
+
+body {
+    .animsition-loading {
+        opacity: 1;
+        height: 100px;
+        margin-top: -50px;
+        background-image: url(img/loading.svg);
+        .background-contain();
+        -webkit-animation-name: inherit;
+        -o-animation-name: inherit;
+        animation-name: inherit;
+        -webkit-animation-duration: inherit;
+        -o-animation-duration: inherit;
+        animation-duration: inherit;
+        -webkit-animation-timing-function: inherit;
+        -o-animation-timing-function: inherit;
+        animation-timing-function: inherit;
+        &:after {
+            display: none;
+        }
+    }
 }
 
 
@@ -781,12 +859,6 @@ img.zoom-img {
                 font-size: 15px;
                 line-height: 26px;
                 padding: 0 @gutter*2;
-            }
-            img {
-                &.size-full, 
-                &.size-large {
-                    margin: 30px 0;
-                }
             }
         }
     }
