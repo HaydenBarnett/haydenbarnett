@@ -2,7 +2,7 @@
     Theme Name: Hayden Barnett
     Theme URI: http://github.com/haydenbarnett/haydenbarnett
     Description: www.haydenbarnett.com
-    Version: 0.3
+    Version: 0.4
     Author: Hayden Barnett
     Author URI: http://haydenbarnett.com/
     Tags: 
@@ -78,6 +78,13 @@
     background-size: contain;
 }
 
+.translateX(@amount) {
+    -webkit-transform: translateX(@amount);
+    -moz-transform: translateX(@amount);
+    -ms-transform: translateX(@amount);
+    -o-transform: translateX(@amount);
+    transform: translateX(@amount);
+}
 
 /* --------------------------------------------------------------
    Imports
@@ -97,6 +104,7 @@
 
 html {
     color: @color-off-black;
+    overflow-x: hidden;
 }
 
 body {
@@ -172,25 +180,26 @@ hr {
     background-color: @color-silver;
     margin: 60px 0;
     &.large {
-        margin: 200px 0 100px 0;
+        margin: 100px auto 70px auto;
+        max-width: 70%;
     }
 }
 
 .delay-1 {
-    -webkit-animation-delay: .3s;
-    animation-delay: .3s;
+    -webkit-animation-delay: .2s;
+    animation-delay: .2s;
 }
 .delay-2 {
+    -webkit-animation-delay: .4s;
+    animation-delay: .4s;
+}
+.delay-3 {
     -webkit-animation-delay: .6s;
     animation-delay: .6s;
 }
-.delay-3 {
-    -webkit-animation-delay: .8s;
-    animation-delay: .8s;
-}
 .delay-4 {
-    -webkit-animation-delay: 1s;
-    animation-delay: 1s;
+    -webkit-animation-delay: 0.8s;
+    animation-delay: 0.8s;
 }
 
 
@@ -219,7 +228,7 @@ hr {
             letter-spacing: -6px;
             display: inline-block;
             opacity: 0;
-            .transition(0.8s ease all);
+            .transition(0.6s ease all);
         }
         .dot {
             color: fade(@color-off-black, 60%);
@@ -266,12 +275,10 @@ hr {
    -------------------------------------------------------------- */
 
 .body-slide {
-    overflow-x: hidden;
     position: relative;
-    left: 0;
-    .transition(0.8s ease left);
+    .transition(0.6s ease transform);
     &.body-slide-left {
-        left: -@menu-width;
+        transform: translateX(-@menu-width);
     }
 }
 
@@ -282,13 +289,7 @@ hr {
     top: 0;
     z-index: 1000;
     right: -@menu-width;
-    background: @color-light-grey;
-    // -webkit-box-shadow:inset 60px 0 60px -60px rgba(30,50,50,0.1);
-    // box-shadow:inset 60px 0 60px -60px rgba(50,50,50,0.1);
-    .transition(0.8s ease right);
-    &.menu-open {
-        right: 0px;
-    }
+    background: @color-off-white;
 }
 
 #menu {
@@ -419,7 +420,7 @@ hr {
                 float: left;
                 color: @color-white;
                 font-size: 20px;
-                letter-spacing: 1px;
+                letter-spacing: 0.3px;
                 margin-bottom: 5px;
                 .animated();
                 .delay-1();
@@ -430,25 +431,30 @@ hr {
                 margin: 0;
                 padding-left: 0px;
                 .animated();
-                .delay-2();
+                .delay-1();
                 li {
                     color: @color-white;
                     font-size: 12px;
                     line-height: 22px;
-                    letter-spacing: 2px;
+                    letter-spacing: 0;
                     list-style: none;
                     opacity: 0.5;
                 }
             }
         }
-        .icon {
-            color: @color-white;
+        .year {
             position: absolute;
             bottom: 30px;
             left: auto;
-            font-size: 24px;
             .animated();
-            .delay-3();
+            .delay-2();
+            span {
+                color: @color-white;
+                font-size: 12px;
+                line-height: 22px;
+                letter-spacing: 0;
+                opacity: 0.5;
+            }
         }
     }
     .tile-background {
@@ -467,7 +473,7 @@ hr {
     &:hover {
         .tile-inner {
             opacity: 1;
-            .tile-info h2, .tile-info ul, .icon {
+            .tile-info h2, .tile-info ul, .year {
                 .fadeIn();
             }
         }
@@ -773,8 +779,8 @@ img.zoom-img {
     left: 0;
     opacity: 0;
     z-index: -1;
-    background: fade(@color-white, 80%);
-    .transition(0.8s ease all);
+    background: fade(@color-off-black, 30%);
+    .transition(0.6s ease opacity);
     &.active {
         z-index: 10;
         opacity: 1;
@@ -786,6 +792,7 @@ img.zoom-img {
    Animsition
    -------------------------------------------------------------- */
 
+/*
 body {
     .animsition-loading {
         opacity: 1;
@@ -807,7 +814,7 @@ body {
         }
     }
 }
-
+*/
 
 /* --------------------------------------------------------------
    Footer
@@ -837,6 +844,10 @@ body {
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 991px) {
 
+    #banner {
+        height: 400px;
+    }
+
     h1 {
         font-size: 26px;
     }
@@ -847,6 +858,7 @@ body {
             padding: 35px;    
         }
     }
+
 
     section {
         .page-title {
@@ -890,16 +902,15 @@ body {
         }
     }
 
-    .cbp-spmenu-vertical {
+    .body-slide {
+        &.body-slide-left {
+            transform: translateX(-@menu-width-mobile);
+        }
+    }
+
+    #slide-menu {
         width: @menu-width-mobile;
-    }
-
-    .cbp-spmenu-right {
         right: -@menu-width-mobile;
-    }
-
-    .cbp-spmenu-push-toleft {
-        left: -@menu-width-mobile;
     }
 
     #menu {
@@ -922,6 +933,19 @@ body {
 
     #photo-container {
         display: none;
+    }
+
+    section {
+        .page-title {
+            h1 {
+                padding: 0 40px;
+            }
+        }
+        .page-content {
+            p {
+                padding: 0 40px;
+            }
+        }
     }
 
 }

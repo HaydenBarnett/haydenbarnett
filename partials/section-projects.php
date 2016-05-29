@@ -15,6 +15,7 @@
                         $project_ID = get_sub_field('project');
                         $width = get_sub_field('width');
                         $colour = get_field('colour', $project_ID);
+                        $year = get_field('year', $project_ID);
                         if ($width === 'large' || $width === 'medium'):
                             $image = wp_get_attachment_image_src( get_post_thumbnail_id($project_ID), 'medium' );
                         else :
@@ -41,10 +42,15 @@
                                                 <li><?php echo $tag->name; ?></li>
                                             <?php endforeach; ?>
                                         <?php endif; ?>
-                                        <li><?php the_time('Y'); ?></li>
                                     </ul>
                                 </div>
-                                <div class="icon">&rarrhk;</div>
+                                <div class="year">
+                                    <?php if ($year): ?>
+                                        <span><?php echo $year; ?></span>
+                                    <?php else: ?>
+                                        <span><?php the_time('Y'); ?></span>
+                                    <?php endif; ?>
+                                </div>
                             </div>
                             <div class="tile-background" style="background-image: url(<?php echo $image[0]; ?>);"></div>
                         </a>

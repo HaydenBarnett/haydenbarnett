@@ -19,7 +19,8 @@
                 <?php endif; ?>
                     
                     <?php 
-                        $colour = get_field('colour', $next->ID); 
+                        $colour = get_field('colour', $next->ID);
+                        $year = get_field('year', $next->ID);
                         $image = wp_get_attachment_image_src( get_post_thumbnail_id($next), 'medium' );
                     ?>
 
@@ -37,10 +38,15 @@
                                             <li><?php echo $tag->name; ?></li>
                                         <?php endforeach; ?>
                                     <?php endif; ?>
-                                    <li><?php the_time('Y'); ?></li>
                                 </ul>
+                                <div class="year">
+                                    <?php if ($year): ?>
+                                        <span><?php echo $year; ?></span>
+                                    <?php else: ?>
+                                        <span><?php the_time('Y'); ?></span>
+                                    <?php endif; ?>
+                                </div>
                             </div>
-                            <div class="icon">&rarrhk;</div>
                         </div>
                         <div class="tile-background" style="background-image: url(<?php echo $image[0]; ?>);"></div>
                     </a>
@@ -59,6 +65,7 @@
                     
                     <?php 
                         $colour = get_field('colour', $previous->ID); 
+                        $year = get_field('year', $previous->ID);
                         $image = wp_get_attachment_image_src( get_post_thumbnail_id($previous), 'large' );
                     ?>
 
@@ -76,10 +83,15 @@
                                             <li><?php echo $tag->name; ?></li>
                                         <?php endforeach; ?>
                                     <?php endif; ?>
-                                    <li><?php the_time('Y'); ?></li>
                                 </ul>
                             </div>
-                            <div class="icon">&rarrhk;</div>
+                            <div class="year">
+                                <?php if ($year): ?>
+                                    <span><?php echo $year; ?></span>
+                                <?php else: ?>
+                                    <span><?php the_time('Y'); ?></span>
+                                <?php endif; ?>
+                            </div>
                         </div>
                         <div class="tile-background" style="background-image: url(<?php echo $image[0]; ?>);"></div>
                     </a>

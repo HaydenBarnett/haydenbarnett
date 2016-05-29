@@ -15,7 +15,7 @@
         width: 25px;
         height: 2px;
         background-color: @color-off-black;
-        .transition(0.8s ease all);
+        .transition(0.6s ease all);
     }
 
     .bar-1 {
@@ -30,19 +30,17 @@
 
     &.active {
         .bar-1 {
-            top: 13px;
-            background-color: @color-off-black;
-            -webkit-transform: rotate(45deg);
-            transform: rotate(45deg);
+            -webkit-transform: translateY(8px) rotate(45deg);
+            transform: translateY(8px) rotate(45deg);
+            background-color: @color-white;
         }
         .bar-2 {
             opacity: 0;
         }
         .bar-3 {
-            top: 13px;
-            background-color: @color-off-black;
-            -webkit-transform: rotate(-225deg);
-            transform: rotate(-225deg);
+            -webkit-transform: translateY(-8px) rotate(-225deg);
+            transform: translateY(-8px) rotate(-225deg);
+            background-color: @color-white;
         }
     }
 }

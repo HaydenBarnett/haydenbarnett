@@ -16,10 +16,7 @@
     function toggleMenu() {
         $('#overlay').toggleClass('active');
         $(".hamburger").toggleClass("active");
-        $('body').toggleClass('body-slide-left'); // cbp-spmenu-push-toleft
-        $('#slide-menu').toggleClass('menu-open');
-        $('#showRightPush').toggleClass('active');
-        $('#showRightPush').toggleClass('disabled');
+        $('body').toggleClass('body-slide-left');
     }
 
     $(function() {
