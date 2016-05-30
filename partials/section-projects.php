@@ -16,10 +16,15 @@
                         $width = get_sub_field('width');
                         $colour = get_field('colour', $project_ID);
                         $year = get_field('year', $project_ID);
-                        if ($width === 'large' || $width === 'medium'):
-                            $image = wp_get_attachment_image_src( get_post_thumbnail_id($project_ID), 'medium' );
+                        $full = get_field('use_full_size_image', $project_ID);
+                        if ($full) :
+                            $image = wp_get_attachment_image_src( get_post_thumbnail_id($project_ID), 'full' );
                         else :
-                            $image = wp_get_attachment_image_src( get_post_thumbnail_id($project_ID), 'thumbnail' );
+                            if ($width === 'large' || $width === 'medium'):
+                                $image = wp_get_attachment_image_src( get_post_thumbnail_id($project_ID), 'medium' );
+                            else :
+                                $image = wp_get_attachment_image_src( get_post_thumbnail_id($project_ID), 'thumbnail' );
+                            endif;
                         endif;
                     ?>
 

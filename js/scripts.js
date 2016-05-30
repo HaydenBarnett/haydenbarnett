@@ -17,6 +17,7 @@
         $('#overlay').toggleClass('active');
         $(".hamburger").toggleClass("active");
         $('body').toggleClass('body-slide-left');
+        $('#slide-menu').toggleClass('open-menu');
     }
 
     $(function() {
