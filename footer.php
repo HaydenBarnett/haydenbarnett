@@ -2,11 +2,8 @@
     </div><!-- #content -->
 
     <footer id="footer">
-
         <div class="container">
-
         	<div class="row">
-
         		<div class="col-sm-12">
 
             		<div class="logo">
@@ -14,22 +11,13 @@
                     </div>
 
 				</div>
-
 			</div>
-
         </div>
-
     </footer>
 
     <div id="overlay"></div>
 
     <?php wp_footer(); ?>
-
-    <script>
-        (function ($) {
-            FastClick.attach(document.body);
-        }(jQuery));
-    </script>
 
 </body>
 </html>

@@ -1,6 +1,8 @@
 (function ($) {
 	"use strict"
 
+    FastClick.attach(document.body);
+
     // Toggle mobile menu
 
 	$(".hamburger").click(function () {

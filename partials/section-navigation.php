@@ -7,7 +7,6 @@
 
 <section id="navigation">
     <div class="container">
-
         <div class="row">
 
             <?php if (!empty( $next )): ?>
@@ -101,7 +100,5 @@
             <?php endif; ?>
 
         </div>
-
     </div>
-    
 </section>

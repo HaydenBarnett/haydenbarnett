@@ -1,7 +1,5 @@
 <?php
-
     $frontpage = get_option('page_on_front');
-
 ?>
 
 <section id="projects">
@@ -18,7 +16,7 @@
                         $year = get_field('year', $project_ID);
                         if ($width === 'large' || $width === 'medium'):
                             $image = wp_get_attachment_image_src( get_post_thumbnail_id($project_ID), 'medium' );
-                        else :
+                        else:
                             $image = wp_get_attachment_image_src( get_post_thumbnail_id($project_ID), 'thumbnail' );
                         endif;
                     ?>

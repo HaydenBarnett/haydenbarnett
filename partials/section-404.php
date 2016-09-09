@@ -1,9 +1,6 @@
 <section id="404">
-
     <div class="container">
-
         <div class="row">
-
             <div class="col-md-12">
 
                 <div class="page-title">
@@ -16,9 +13,6 @@
                 </div>
 
             </div>
-
         </div>
-
     </div>
-
 </section>
