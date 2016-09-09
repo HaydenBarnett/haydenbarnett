@@ -1,7 +1,9 @@
+// @koala-prepend "jquery.js"
+// @koala-prepend "transition.js"
+// @koala-prepend "zoom.js"
+
 (function ($) {
 	"use strict"
-
-    FastClick.attach(document.body);
 
     // Toggle mobile menu
 

@@ -19,5 +19,7 @@
 
     <?php wp_footer(); ?>
 
+    <?php edit_post_link('<p style="text-align:center;margin:30px auto;">Edit this page</p>'); ?>
+
 </body>
 </html>

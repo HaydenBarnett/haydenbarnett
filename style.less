@@ -2,7 +2,7 @@
     Theme Name: Hayden Barnett
     Theme URI: http://github.com/haydenbarnett/haydenbarnett
     Description: www.haydenbarnett.com
-    Version: 0.5
+    Version: 0.6
     Author: Hayden Barnett
     Author URI: http://haydenbarnett.com/
     Tags: 
@@ -49,15 +49,6 @@
     -ms-transition:     @transition;
     -o-transition:      @transition;
     transition:         @transition; 
-}
-
-.border-radius(@radius: 3px) {
-    -webkit-border-radius:      @radius;
-    -moz-border-radius:         @radius;
-    border-radius:              @radius;
-    -moz-background-clip:       padding;
-    -webkit-background-clip:    padding-box;
-    background-clip:            padding-box;
 }
 
 .background-cover() {
@@ -676,36 +667,6 @@ a img {
     }
 }
 
-/* Text meant only for screen readers. */
-.screen-reader-text {
-    clip: rect(1px, 1px, 1px, 1px);
-    position: absolute !important;
-    height: 1px;
-    width: 1px;
-    overflow: hidden;
-}
-
-.screen-reader-text:focus {
-    background-color: #f1f1f1;
-    border-radius: 3px;
-    box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
-    clip: auto !important;
-    color: #21759b;
-    display: block;
-    font-size: 14px;
-    font-size: 0.875rem;
-    font-weight: bold;
-    height: auto;
-    left: 5px;
-    line-height: normal;
-    padding: 15px 23px 14px;
-    text-decoration: none;
-    top: 5px;
-    width: auto;
-    z-index: 100000; /* Above WP toolbar. */
-}
-
-
 /*  ----------------------------------------------------------------
     Zoom & Overlays
     ---------------------------------------------------------------- */
@@ -879,7 +840,7 @@ body {
 
     .tile {
         height: @tile-height-mobile;
-        margin-bottom: @gutter;
+        margin-bottom: 10px;
         .tile-inner {
             padding: 30px;
             .icon {
