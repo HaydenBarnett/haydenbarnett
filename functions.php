@@ -285,11 +285,11 @@ function queue_scripts() {
     wp_enqueue_style('font-noto-serif', 'https://fonts.googleapis.com/css?family=Noto+Serif');
     wp_enqueue_style('font-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans');
 
+    wp_enqueue_script('theme-scripts', get_template_directory_uri() . '/js/scripts.min.js', '', $theme_version, true);
+
     if (!is_admin()) {
         wp_deregister_script('wp-embed');
     }
-
-    wp_enqueue_script('theme-scripts', get_template_directory_uri() . '/js/scripts.min.js', '', $theme_version, true);
 
 } add_action( 'wp_enqueue_scripts', 'queue_scripts' );
 
