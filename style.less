@@ -2,7 +2,7 @@
     Theme Name: Hayden Barnett
     Theme URI: http://github.com/haydenbarnett/haydenbarnett
     Description: www.haydenbarnett.com
-    Version: 0.7
+    Version: 0.8
     Author: Hayden Barnett
     Author URI: http://haydenbarnett.com/
     Tags: 
@@ -478,7 +478,7 @@ section {
     position: relative;
     padding: @gutter*2 0;
     &.project {
-        margin-top: -400px;
+        margin-top: 80px;
     }
     .page-title {
         margin-bottom: 20px;
@@ -546,8 +546,8 @@ section {
 
 #banner {
     height: 500px;
-    top: -165px;
-    position: relative;
+    top: -20px;
+    position: absolute;
     z-index: -1;
     padding: 0;
     left: -5%;
@@ -764,10 +764,6 @@ body {
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 991px) {
 
-    #banner {
-        height: 400px;
-    }
-
     h1 {
         font-size: 26px;
     }
@@ -779,8 +775,14 @@ body {
         }
     }
 
+    #banner {
+        height: 400px;
+    }
 
     section {
+        &.project {
+            margin-top: 40px;
+        }
         .page-title {
             h1 {
                 padding: 0 15px;
@@ -855,7 +857,14 @@ body {
         display: none;
     }
 
+    #banner {
+        height: 300px;
+    }
+
     section {
+        &.project {
+            margin-top: 40px;
+        }
         .page-title {
             h1 {
                 padding: 0 40px;
@@ -878,6 +887,9 @@ body {
     }
 
     section {
+        &.project {
+            margin-top: 0;
+        }
         .page-content {
             p {
                 font-size: 12px;
@@ -902,4 +914,11 @@ body {
 /* Retina */
 @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
 
+}
+
+/* IE 10 */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    #slide-menu.open-menu { 
+        right: 0; 
+    }
 }

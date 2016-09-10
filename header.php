@@ -29,9 +29,13 @@
 
     <!--[if lt IE 9]>
         <script src="<?php echo esc_url(get_template_directory_uri()); ?>/js/html5shiv.js"></script>
-    <![endif]-->    
+    <![endif]-->
 
     <?php wp_head(); ?>
+
+    <!--[if IE]>
+        <style> #slide-menu.open-menu { right:0; } </style>
+    <![endif]-->
 
 </head>
 <body <?php body_class('body-slide'); ?>>

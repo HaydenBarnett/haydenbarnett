@@ -20,7 +20,12 @@
                     <?php 
                         $colour = get_field('colour', $next->ID);
                         $year = get_field('year', $next->ID);
-                        $image = wp_get_attachment_image_src( get_post_thumbnail_id($next), 'medium' );
+                        $full = get_field('use_full_size_image', $next->ID);
+                        if ($full):
+                            $image = wp_get_attachment_image_src( get_post_thumbnail_id($next->ID), 'full' );
+                        else:
+                            $image = wp_get_attachment_image_src( get_post_thumbnail_id($next->ID), 'medium' );
+                        endif;
                     ?>
 
                     <h6>Previous</h6>
@@ -65,7 +70,12 @@
                     <?php 
                         $colour = get_field('colour', $previous->ID); 
                         $year = get_field('year', $previous->ID);
-                        $image = wp_get_attachment_image_src( get_post_thumbnail_id($previous), 'large' );
+                        $full = get_field('use_full_size_image', $previous->ID);
+                        if ($full):
+                            $image = wp_get_attachment_image_src( get_post_thumbnail_id($previous->ID), 'full' );
+                        else:
+                            $image = wp_get_attachment_image_src( get_post_thumbnail_id($previous->ID), 'medium' );
+                        endif;
                     ?>
 
                     <h6>Next</h6>

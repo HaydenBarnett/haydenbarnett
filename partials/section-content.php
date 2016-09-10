@@ -1,6 +1,11 @@
 <?php
-    $image = wp_get_attachment_image_src( get_post_thumbnail_id($project_ID), 'medium' );
     $colour = get_field('colour');
+    $full = get_field('use_full_size_image');
+    if ($full) :
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id($project_ID), 'full' );
+    else :
+        $image = wp_get_attachment_image_src( get_post_thumbnail_id($project_ID), 'medium' );
+    endif;
 ?>
 
 <section id="banner">
