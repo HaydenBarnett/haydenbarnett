@@ -1,0 +1,37 @@
+/* --------------------------------------------------------------
+   Mixins
+   -------------------------------------------------------------- */
+
+.transition (@transition: 0.4s ease all) {
+    -webkit-transition: @transition;  
+    -moz-transition:    @transition;
+    -ms-transition:     @transition;
+    -o-transition:      @transition;
+    transition:         @transition; 
+}
+
+.background-cover() {
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.background-contain() {
+    background-repeat: no-repeat;
+    background-position: center center;
+    -webkit-background-size: contain;
+    -moz-background-size: contain;
+    -o-background-size: contain;
+    background-size: contain;
+}
+
+.translateX(@amount) {
+    -webkit-transform: translateX(@amount);
+    -moz-transform: translateX(@amount);
+    -ms-transform: translateX(@amount);
+    -o-transform: translateX(@amount);
+    transform: translateX(@amount);
+}

@@ -1,16 +1,20 @@
 <?php
-    $frontpage = get_option('page_on_front');
+    $query = new WP_Query( array( 
+        'post_type' => 'project',
+        'posts_per_page' => -1
+    ));
 ?>
 
 <section id="projects">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
 
-            <?php if (have_rows('projects', $frontpage)) : ?>
-                <?php while (have_rows('projects', $frontpage)) : the_row(); ?>
+            <?php if ($query->have_posts()): ?>
+                <?php while($query->have_posts()): ?>
 
                     <?php
-                        $project_ID = get_sub_field('project');
+                        $project = $query->the_post();
+                        $project_ID = $project->ID;
                         $width = get_sub_field('width');
                         $colour = get_field('colour', $project_ID);
                         $year = get_field('year', $project_ID);
@@ -22,13 +26,7 @@
                         endif;
                     ?>
 
-                    <?php if ($width === 'large'): ?>
-                        <div class="col-md-12">
-                    <?php elseif ($width === 'medium'): ?>
-                        <div class="col-md-8 col-sm-6">
-                    <?php elseif ($width === 'small'): ?>
-                        <div class="col-md-4 col-sm-6">
-                    <?php endif; ?>
+                    <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                         <a href="<?php echo get_the_permalink($project_ID); ?>" class="tile" style="background-image: url(<?php echo $image[0]; ?>); background-color: <?php echo $colour; ?>">
                             <?php $rgb = hex2rgb($colour); ?>
                             <div class="tile-inner" style="background-color: rgba(<?php echo $rgb['red']; ?>, <?php echo $rgb['green']; ?>, <?php echo $rgb['blue']; ?>, 0.5);">
@@ -57,6 +55,8 @@
 
                 <?php endwhile; ?>
             <?php endif; ?>
+
+            <?php wp_reset_query(); ?>
 
         </div>
     </div>

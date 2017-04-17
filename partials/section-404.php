@@ -1,17 +1,20 @@
 <section id="404">
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
-
-                <div class="page-title">
-                    <h1>Nothing found</h1>
+            <div class="col-md-5">
+                <div id="sidebar">
+                    <div class="sidebar-nav">
+                        <br><br>
+                        <h1>Nothing found</h1>
+                    </div>
+                    <div class="sidebar-content">
+                        <p>This page has moved or been deleted.</p>
+                        <p>Check the <a href="<?php echo esc_html(home_url()); ?>">Home page</a>.</p>
+                    </div>
                 </div>
-
-                <div class="page-content">
-                    <p>Sorry it seems we cannot find what you were looking for.</p>
-                    <p>Check the <a href="<?php echo esc_html(home_url()); ?>">Home page</a>.</p>
-                </div>
-
+            </div>
+            <div class="col-md-7">
+                <div id="gallery"></div>
             </div>
         </div>
     </div>

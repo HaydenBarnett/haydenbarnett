@@ -1,5 +1,6 @@
 <?php
     $colour = get_field('colour');
+    $sidebar_content = get_field('sidebar_content');
     $full = get_field('use_full_size_image');
     if ($full) :
         $image = wp_get_attachment_image_src( get_post_thumbnail_id($project_ID), 'full' );
@@ -14,17 +15,28 @@
 </section>
 
 <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-    <div class="container">
+    <div class="container-fluid">
         <div class="row">
-            <div class="col-md-12">
-
-                <div class="page-title">
-                    <h1><?php the_title(); ?></h1>
+            <div class="col-md-4">
+                <div id="sidebar">
+                    <div class="sidebar-nav clearfix">
+                        <div class="left"><?php next_post_link( '%link', _x( '&lt', 'Next', 'haydenbarnett' ) . '' ); ?></div>
+                        <div class="right"><?php previous_post_link( '%link', ''. _x( '&gt;', 'Previous', 'haydenbarnett' ) ); ?></div>
+                    </div>
+                    <div class="sidebar-title">
+                        <h3><?php the_title(); ?></h3>
+                    </div>
+                    <div class="sidebar-content">
+                        <?php echo $sidebar_content; ?>
+                    </div>
                 </div>
-                <div class="page-content">
-                    <?php the_content(); ?>
+            </div>
+            <div class="col-md-8">
+                <div id="gallery">
+                    <div class="gallery-content">
+                        <?php the_content(); ?>
+                    </div>
                 </div>
-
             </div>
         </div>
     </div>

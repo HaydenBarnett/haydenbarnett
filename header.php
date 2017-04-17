@@ -40,43 +40,38 @@
 </head>
 <body <?php body_class('body-slide'); ?>>
 
-    <?php if (!isset($_SERVER['HTTP_USER_AGENT']) || stripos($_SERVER['HTTP_USER_AGENT'], 'Speed Insights') === false): ?>
-        <script>
-          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-          })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-          ga('create', 'UA-31171572-1', 'auto');
-          ga('send', 'pageview');
-        </script>
-    <?php endif; ?>
+<?php if (!isset($_SERVER['HTTP_USER_AGENT']) || stripos($_SERVER['HTTP_USER_AGENT'], 'Speed Insights') === false): ?>
+    <script>
+      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+      ga('create', 'UA-31171572-1', 'auto');
+      ga('send', 'pageview');
+    </script>
+<?php endif; ?>
 
-    <header id="header">
+<nav id="slide-menu">
+    <div id="menu">
+        <?php primary_menu(); ?>
+    </div>
+</nav>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
+<div id="wrapper">
+    <div id="inner-wrapper">
 
-                    <div class="logo">
-                        <a href="<?php echo esc_url(home_url('/')); ?>">H<span class="first">ayden</span>B<span class="second">arnett</span><span class="dot">.</span></a>
-                    </div>
+        <header id="header" class="clearfix">
 
-                    <a href="javascript:void(0)" class="hamburger"> 
-                        <div class="menu-bar bar-1"></div>
-                        <div class="menu-bar bar-2"></div>
-                        <div class="menu-bar bar-3"></div>
-                    </a>
-
-                </div>
+            <div class="logo">
+                <a href="<?php echo esc_url(home_url('/')); ?>">Hayden Barnett<span class="dot"></span></a>
             </div>
-        </div>
 
-    </header>
+            <a href="javascript:void(0)" class="hamburger"> 
+                <div class="menu-bar bar-1"></div>
+                <div class="menu-bar bar-2"></div>
+                <div class="menu-bar bar-3"></div>
+            </a>
 
-    <nav id="slide-menu">
-        <div id="menu">
-            <?php primary_menu(); ?>
-        </div>
-    </nav>
+        </header>
 
-    <div id="content">
+        <div id="content">

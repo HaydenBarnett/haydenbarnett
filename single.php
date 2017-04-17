@@ -4,17 +4,7 @@
 
         <?php get_template_part('partials/section', 'content'); ?>
 
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-
-                    <hr class="large">
-
-                </div>
-            </div>
-        </div>
-
-        <?php get_template_part('partials/section', 'navigation'); ?>
+        <?php get_template_part('partials/section', 'projects'); ?>
 
     <?php endwhile; ?>
 
