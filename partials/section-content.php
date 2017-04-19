@@ -23,17 +23,17 @@
                         <div class="left"><?php next_post_link( '%link', _x( '&lt', 'Next', 'haydenbarnett' ) . '' ); ?></div>
                         <div class="right"><?php previous_post_link( '%link', ''. _x( '&gt;', 'Previous', 'haydenbarnett' ) ); ?></div>
                     </div>
-                    <div class="sidebar-title">
+                    <div class="sidebar-title animated fadeIn">
                         <h3><?php the_title(); ?></h3>
                     </div>
-                    <div class="sidebar-content">
+                    <div class="sidebar-content animated fadeIn">
                         <?php echo $sidebar_content; ?>
                     </div>
                 </div>
             </div>
             <div class="col-md-8">
                 <div id="gallery">
-                    <div class="gallery-content">
+                    <div class="gallery-content animated fadeIn">
                         <?php the_content(); ?>
                     </div>
                 </div>
