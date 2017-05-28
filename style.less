@@ -2,7 +2,7 @@
     Theme Name: Hayden Barnett
     Theme URI: http://github.com/haydenbarnett/haydenbarnett
     Description: www.haydenbarnett.com
-    Version: 1.1
+    Version: 1.2
     Author: Hayden Barnett
     Author URI: http://haydenbarnett.com/
     Tags: 
@@ -173,7 +173,7 @@ a img {
 
 #inner-wrapper {
     background-color: @color-foreground;
-    width: 1170px;
+    width: 1800px;
     max-width: 100%;
     margin: 0 auto;
 }
@@ -185,12 +185,9 @@ a img {
 
 #header {
     position: relative;
-    .logo {
-        float: left;
-    }
 }
 
-.logo {
+#logo {
     position: relative;
     padding: @padding-lg;
     text-align: left;
@@ -201,7 +198,23 @@ a img {
         font-size: 20px;
         line-height: 30px;
     }
-    
+    .divider {
+        padding: 0 15px;
+        color: @color-off-black;
+        opacity: 0.1;
+        font-size: 15px;
+        line-height: 30px;
+        vertical-align: top;
+        display: none;
+    }
+    .description {
+        color: @color-off-black;
+        opacity: 0.5;
+        font-size: 15px;
+        line-height: 30px;
+        vertical-align: top;
+        margin-left: 30px;
+    }
 }
 
 
@@ -332,6 +345,7 @@ a img {
                 font-size: 20px;
                 letter-spacing: 0.3px;
                 margin-bottom: 5px;
+                padding-right: 30px;
             }
             ul {
                 float: left;
@@ -548,9 +562,11 @@ section {
 
         }
         img {
+            /*
             -webkit-transition: all 300ms;
             -o-transition: all 300ms;
             transition: all 300ms;
+            */
             &.border {
                 border: 1px solid @color-light-grey;
             }
@@ -582,7 +598,7 @@ img.zoom-img {
     cursor: pointer;
     cursor: -webkit-zoom-out;
     cursor: -moz-zoom-out;
-    border-color: transparent!important;
+    // border-color: transparent!important;
 }
 
 .zoom-overlay {
@@ -674,7 +690,27 @@ body {
    Responsive
    -------------------------------------------------------------- */
 
-@media only screen and (max-width : 1199px) {
+@media (min-width : 1525px) {
+
+    #projects {
+        .col-lg-3 {
+            width: 25%!important;
+        }
+    }
+
+}
+
+@media (min-width : 1199px) {
+
+    #projects {
+        .col-lg-3 {
+            width: 33.33333333%;
+        }
+    }
+
+}
+
+@media (max-width : 1199px) {
     .tile {
         height: @tile-height-laptop;
         .tile-inner {
@@ -683,13 +719,13 @@ body {
     }
 }
 
-@media only screen and (max-width : 991px) {
+@media (max-width : 991px) {
 
     #wrapper {
         padding: @padding-md;
     }
 
-    .logo {
+    #logo {
         padding: @padding-md;
     }
 
@@ -742,14 +778,20 @@ body {
     }
 }
 
-@media only screen and (max-width : 767px) {
+@media (max-width : 767px) {
 
     #wrapper {
         padding: @padding-sm;
     }
 
-    .logo {
+    #logo {
         padding: @padding-sm;
+        .description {
+            font-size: 9px;
+            line-height: 12px;
+            margin-left: 5px;
+            display: block;
+        }
     }
 
     #sidebar {
@@ -768,15 +810,11 @@ body {
     }
 
     .hamburger {
-        top: @padding-sm;
+        top: 38px;
         right: @padding-sm;
     }
 
-    .logo {
-        
-    }
-
-    .hamburger {
+    #logo {
         
     }
 
@@ -854,13 +892,13 @@ body {
 
 }
 
-@media only screen and (max-width : 479px) {
+@media (max-width : 479px) {
 
     #wrapper {
-        padding: @padding-xs/2;
+        padding: 0;
     }
 
-    .logo {
+    #logo {
         padding: @padding-xs;
     }
 
@@ -879,7 +917,7 @@ body {
     }
 
     .hamburger {
-        top: @padding-xs;
+        top: 36px;
         right: @padding-xs;
         .menu-bar {
             width: 24px;
@@ -928,7 +966,7 @@ body {
 }
 
 /* Custom, iPhone Retina */ 
-@media only screen and (max-width : 320px) {
+@media (max-width : 320px) {
 
 }
 

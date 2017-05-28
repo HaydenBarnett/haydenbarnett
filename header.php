@@ -6,7 +6,7 @@
     <meta name="designer" content="<?php bloginfo("name"); ?>">
     <meta name="rating" content="general">
 
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
@@ -62,8 +62,8 @@
 
         <header id="header" class="clearfix">
 
-            <div class="logo">
-                <a href="<?php echo esc_url(home_url('/')); ?>">Hayden Barnett<span class="dot"></span></a>
+            <div id="logo">
+                <a href="<?php echo esc_url(home_url()); ?>">Hayden Barnett</a><span class="divider">|</span><span class="description">Designer &amp; Front End Developer</span>
             </div>
 
             <a href="javascript:void(0)" class="hamburger"> 

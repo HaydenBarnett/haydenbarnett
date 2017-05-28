@@ -33,7 +33,7 @@
             </div>
             <div class="col-md-8">
                 <div id="gallery">
-                    <div class="gallery-content animated fadeIn">
+                    <div class="gallery-content">
                         <?php the_content(); ?>
                     </div>
                 </div>
