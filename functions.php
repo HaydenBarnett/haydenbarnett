@@ -49,39 +49,15 @@ function hex2rgb( $colour ) {
    Plugins
    -------------------------------------------------------------- */
 
-//  Disable contact form 7 scripts and styles
-
-// add_filter( 'wpcf7_load_js', '__return_false' );
-// add_filter( 'wpcf7_load_css', '__return_false' );
-
-
-//  Use this to load contact form 7 scripts and styles on the contact page template
-
-// if ( function_exists( 'wpcf7_enqueue_scripts' ) ) wpcf7_enqueue_scripts();
-// if ( function_exists( 'wpcf7_enqueue_styles' ) ) wpcf7_enqueue_styles();
-
-
-//  Hide yoast for defined custom post types
-
-/* 
-function yoast_is_toast(){
-    if (!current_user_can('activate_plugins')) {
-        remove_meta_box('wpseo_meta', 'custom_post_type', 'normal');
-    }
-} add_action('add_meta_boxes', 'yoast_is_toast', 99); 
-*/
-
 
 /* --------------------------------------------------------------
    Menus
    -------------------------------------------------------------- */
 
-// Configure example nav
-
-function primary_menu() {
+function footer_menu() {
     wp_nav_menu(
         array(
-            'theme_location'  => 'primary',
+            'theme_location'  => 'footer',
             'menu'            => '',
             'container'       => '',
             'container_class' => '',
@@ -127,7 +103,7 @@ function create_project_post() {
             'public' => true,
             'has_archive' => true,
             'supports' => array( 'title', 'editor', 'thumbnail', 'custom-fields', 'excerpt'),
-            'taxonomies' => array('project-tags')
+            'taxonomies' => array('project-tags', 'project-categories')
         )
     );
 
@@ -137,8 +113,17 @@ function create_project_post() {
         array(
             'label' => __( 'Project Tags', 'haydenbarnett' ),
             'hierarchical' => false,
-            'query_var' => true,
-            // 'rewrite' => array( 'slug' => 'document' )
+            'query_var' => true
+        )
+    );
+
+    register_taxonomy(
+        'project-categories',
+        'project',
+        array(
+            'label' => __( 'Project Categories', 'haydenbarnett' ),
+            'hierarchical' => true,
+            'query_var' => true
         )
     );
 
@@ -208,8 +193,7 @@ function remove_admin_logos() { ?>
 // Remove unused wordpress interface items
 
 function remove_menus() {
-    remove_menu_page( 'edit-comments.php' );   // Comments
-    // remove_menu_page( 'tools.php' );        // Tools
+    remove_menu_page( 'edit-comments.php' );
 } add_action( 'admin_menu', 'remove_menus' );
 
 
@@ -235,6 +219,14 @@ function mce_buttons($buttons) {
 } add_filter('mce_buttons_2', 'mce_buttons');
 
 
+// Allow svg files
+
+function define_mime_types( $mimes ){
+    $mimes['svg'] = 'image/svg+xml';
+    return $mimes;
+} add_filter( 'upload_mimes', 'define_mime_types' );
+
+
 // Setup Theme
 
 function setup_theme() {
@@ -245,7 +237,7 @@ function setup_theme() {
     // Register menus
 
     register_nav_menus(array(
-        'primary' => __( 'Primary Menu', 'cornerstone' )
+        'footer' => __( 'Footer Menu', 'haydenbarnett' )
     ));
 
     // Add theme support
@@ -282,7 +274,7 @@ function queue_scripts() {
     $theme_version = $theme['Version'];
 
     wp_enqueue_style('theme-styles', get_stylesheet_uri(), '', $theme_version);
-    wp_enqueue_style('font-open-sans', 'https://fonts.googleapis.com/css?family=Open+Sans');
+    wp_enqueue_style('font-work-sans', 'https://fonts.googleapis.com/css?family=Work+Sans:400,600');
 
     wp_enqueue_script('theme-scripts', get_template_directory_uri() . '/js/scripts.min.js', '', $theme_version, true);
 

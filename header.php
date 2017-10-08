@@ -33,14 +33,11 @@
 
     <?php wp_head(); ?>
 
-    <!--[if IE]>
-        <style> #slide-menu.open-menu { right:0; } </style>
-    <![endif]-->
-
 </head>
-<body <?php body_class('body-slide'); ?>>
+<body <?php body_class(); ?>>
 
 <?php if (!isset($_SERVER['HTTP_USER_AGENT']) || stripos($_SERVER['HTTP_USER_AGENT'], 'Speed Insights') === false): ?>
+
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
       (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
@@ -49,29 +46,18 @@
       ga('create', 'UA-31171572-1', 'auto');
       ga('send', 'pageview');
     </script>
-<?php endif; ?>
 
-<nav id="slide-menu">
-    <div id="menu">
-        <?php primary_menu(); ?>
-    </div>
-</nav>
+<?php endif; ?>
 
 <div id="wrapper">
     <div id="inner-wrapper">
 
         <header id="header" class="clearfix">
-
-            <div id="logo">
-                <a href="<?php echo esc_url(home_url()); ?>">Hayden Barnett</a><span class="divider">|</span><span class="description">Designer &amp; Front End Developer</span>
+            <div class="container-sm">
+                <div id="logo">
+                    <a href="<?php echo esc_url(home_url()); ?>">Hayden Barnett</a>
+                </div>
             </div>
-
-            <a href="javascript:void(0)" class="hamburger"> 
-                <div class="menu-bar bar-1"></div>
-                <div class="menu-bar bar-2"></div>
-                <div class="menu-bar bar-3"></div>
-            </a>
-
         </header>
 
         <div id="content">
