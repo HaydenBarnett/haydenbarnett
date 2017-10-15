@@ -1,11 +1,11 @@
 <section id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="container-sm">
         <div class="project-title">
-            <h1><?php the_title(); ?></h1>
-            <label><?php the_time('Y'); ?></label>
+            <h1 class="animated fadeInLeft delay-1"><?php the_title(); ?></h1>
+            <label class="animated fadeInLeft delay-2"><?php the_time('Y'); ?></label>
         </div>
     </div>
-    <div class="project-content">
+    <div class="project-content animated fadeIn delay-3">
         <?php echo get_field('sidebar_content'); ?>
         <?php the_content(); ?>
     </div>

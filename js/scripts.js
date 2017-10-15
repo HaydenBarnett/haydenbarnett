@@ -1,5 +1,15 @@
 // @koala-prepend "jquery.js"
 // @koala-prepend "zoom.js"
+// @koala-prepend "smoothState.js"
+
+function addBlacklistClass() {
+    $( 'a' ).each( function() {
+        if ( this.href.indexOf('/wp-admin/') !== -1 || 
+             this.href.indexOf('/wp-login.php') !== -1 ) {
+            $( this ).addClass( 'wp-link' );
+        }
+    });
+}
 
 (function () {
     'use strict';
@@ -15,9 +25,28 @@
         $body.append('<span class="ripple ripple-white" style="top:'+y+'px;left:'+x+'px;"></span>');
 
         $('.ripple').on('animationend webkitAnimationEnd oanimationend MSAnimationEnd', function(e) {
-           $(this).remove();
+            $(this).remove();
         });
 
     });
+ 
+    addBlacklistClass();
+ 
+    var settings = { 
+        anchors: 'a',
+        blacklist: '.wp-link',
+        onStart: {
+            duration: 500,
+            render: function ( $container ) {
+                $('#content').addClass('fade-out');
+            }
+        },
+        onAfter: function( $container ) {
+            addBlacklistClass();
+            $('#content').removeClass('fade-out');
+        }
+    };
+ 
+    $('#wrapper').smoothState( settings );
 
 })();

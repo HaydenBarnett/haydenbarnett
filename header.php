@@ -61,3 +61,4 @@
         </header>
 
         <div id="content">
+            <div class="animated fadeInDown">

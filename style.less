@@ -2,7 +2,7 @@
     Theme Name: Hayden Barnett
     Theme URI: http://github.com/haydenbarnett/haydenbarnett
     Description: www.haydenbarnett.com
-    Version: 2.0.2
+    Version: 2.0.3
     Author: Hayden Barnett
     Author URI: http://haydenbarnett.com/
     Tags: 
@@ -156,22 +156,18 @@ hr {
    Utilities
    -------------------------------------------------------------- */
 
-.delay-1 {
-    -webkit-animation-delay: .1s;
-    animation-delay: .1s;
-}
-.delay-2 {
-    -webkit-animation-delay: .2s;
-    animation-delay: .2s;
-}
-.delay-3 {
-    -webkit-animation-delay: .3s;
-    animation-delay: .3s;
-}
-.delay-4 {
-    -webkit-animation-delay: .4s;
-    animation-delay: .4s;
-}
+.delay-1 { .delay(0.5s); }
+.delay-2 { .delay(0.6s); }
+.delay-3 { .delay(0.7s); }
+.delay-4 { .delay(0.8s); }
+.delay-5 { .delay(0.9s); }
+.delay-6 { .delay(1.0s); }
+.delay-7 { .delay(1.2s); }
+.delay-8 { .delay(1.3s); }
+.delay-9 { .delay(1.3s); }
+.delay-10 { .delay(1.4s); }
+.delay-11 { .delay(1.5s); }
+.delay-12 { .delay(1.6s); }
 
 .text-left {
     text-align: left;
@@ -267,6 +263,14 @@ hr {
         &:focus,
         &:active {
             color: @color-black;
+        }
+        &:focus,
+        &:active {
+            color: @color-grey;
+            &:after {
+                width: 0;
+                background-color: transparent;
+            }
         }
     }
 }
@@ -469,8 +473,17 @@ hr {
    Content
    -------------------------------------------------------------- */
 
+
 #content {
-    
+    opacity: 1;
+    -webkit-transition: transform, .5s, opacity .5s;
+    -moz-transition: transform, .5s, opacity .5s;
+    transition: transform, .5s, opacity .5s;
+    &.fade-out {
+        opacity: 0;
+        -webkit-transform: translate3d(0, @padding-lg, 0);
+        transform: translate3d(0, @padding-lg, 0);
+    }
 }
 
 .project-title {
@@ -496,6 +509,7 @@ hr {
             float: left;
             width: (@container-sm - @padding-sm*2) * 0.75;
             box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            background-color: @color-border;
         }
         figcaption {
             float: right;

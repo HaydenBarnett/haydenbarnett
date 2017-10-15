@@ -8,6 +8,8 @@
     $category_2_slug = sanitize_title($category_2);
     $category_3_slug = sanitize_title($category_3);
 
+    $i = 0;
+
 ?>
 
 
@@ -28,7 +30,7 @@
 <section id="projects">
 
     <div class="container-lg">
-        <label><?php echo $category_1; ?></label>
+        <label class="animated fadeInUp delay-2"><?php echo $category_1; ?></label>
     </div>
 
     <div class="container-lg">
@@ -46,6 +48,7 @@
                         $colour = get_field('colour', $project_ID);
                         $full = get_field('use_full_size_image', $project_ID);
                         $logo = wp_get_attachment_image_src( $logo_ID, 'full' );
+                        $i++;
                         
                         if ($full):
                             $background_image = wp_get_attachment_image_src( get_post_thumbnail_id($project_ID), 'full' );
@@ -54,7 +57,7 @@
                         endif;
                     ?>
 
-                    <div class="project-tile-wrapper">
+                    <div class="project-tile-wrapper animated fadeInLeft delay-<?php echo $i; ?>">
                         <a href="<?php echo get_the_permalink($project_ID); ?>" class="project-tile">
                             <div class="project-tile-date"><?php the_time('Y'); ?></div>
                             <div class="project-tile-image" style="background-image: url(<?php echo $background_image[0]; ?>);<?php if ($colour): ?>background-color: <?php echo $colour; endif; ?>">
