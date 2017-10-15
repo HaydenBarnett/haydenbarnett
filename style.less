@@ -2,7 +2,7 @@
     Theme Name: Hayden Barnett
     Theme URI: http://github.com/haydenbarnett/haydenbarnett
     Description: www.haydenbarnett.com
-    Version: 2.0.0
+    Version: 2.0.1
     Author: Hayden Barnett
     Author URI: http://haydenbarnett.com/
     Tags: 
@@ -111,6 +111,11 @@ p {
     line-height: 1.7em;
 }
 
+figcaption {
+    font-size: 18px;
+    line-height: 1.7em;
+}
+
 label {
     color: @color-grey;
     font-size: 12px;
@@ -185,14 +190,17 @@ hr {
 .container-sm:before,
 .container-sm:after,
 .container-lg:before,
-.container-lg:after {
+.container-lg:after,
+.project-content figure:before,
+.project-content figure:after {
     display: table;
     content: " ";
 }
 
 .clearfix:after,
 .container-sm:after,
-.container-lg:after {
+.container-lg:after,
+.project-content figure:after {
     clear: both;
 }
 
@@ -225,18 +233,6 @@ hr {
 .container-lg {
     width: @container-lg;
     padding: 0 0 0 @padding-lg;
-}
-
-.project-content {
-    width: 100%;
-    margin-bottom: @padding-lg;
-    h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
-        max-width: 100%;
-        width: @container-sm;
-        padding: 0 @padding-sm;
-        margin-left: auto;
-        margin-right: auto;
-    }
 }
 
 .half {
@@ -482,7 +478,31 @@ hr {
 }
 
 .project-content {
-    
+    width: 100%;
+    margin-bottom: @padding-lg;
+    h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
+        max-width: 100%;
+        width: @container-sm;
+        padding: 0 @padding-sm;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    figure {
+        width: @container-sm!important;
+        max-width: 100%;
+        margin: 0 auto @padding-lg auto;
+        padding: 0 @padding-sm;
+        img {
+            width: (@container-sm - @padding-sm*2) * 0.75;
+            float: left;
+        }
+        figcaption {
+            width: (@container-sm - @padding-sm*2) * 0.25 - @padding-sm;
+            float: right;
+            padding-top: @padding-sm/2;
+            border-top: 2px solid @color-border;
+        }
+    }
 }
 
 
@@ -629,6 +649,17 @@ body.error404 {
         h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
             width: @container-sm-tablet;
         }
+        figure {
+            width: @container-sm-tablet!important;
+            img {
+                width: 100%;
+            }
+            figcaption {
+                width: 100%;
+                float: left;
+                border: 0;
+            }
+        }
     }
 
     .container-sm {
@@ -701,7 +732,7 @@ body.error404 {
         font-size: 28px;
     }
 
-    ul, li, p {
+    ul, li, p, figcaption {
         font-size: 14px;
     }
 
