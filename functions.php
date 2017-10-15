@@ -25,24 +25,15 @@ function filter_ptags_on_iframes($content) {
 } add_filter('the_content', 'filter_ptags_on_iframes');
 
 
-// Convert hex to rgb
+// Add data-zoom attribute to images
 
-function hex2rgb( $colour ) {
-    if ( $colour[0] == '#' ) {
-            $colour = substr( $colour, 1 );
-    }
-    if ( strlen( $colour ) == 6 ) {
-            list( $r, $g, $b ) = array( $colour[0] . $colour[1], $colour[2] . $colour[3], $colour[4] . $colour[5] );
-    } elseif ( strlen( $colour ) == 3 ) {
-            list( $r, $g, $b ) = array( $colour[0] . $colour[0], $colour[1] . $colour[1], $colour[2] . $colour[2] );
-    } else {
-            return false;
-    }
-    $r = hexdec( $r );
-    $g = hexdec( $g );
-    $b = hexdec( $b );
-    return array( 'red' => $r, 'green' => $g, 'blue' => $b );
-}
+function add_zoom_data_attribute($content) {
+    global $post;
+    $pattern ="/<img(.*?)class=\"(.*?)\"(.*?)>/i";
+    $replacement = '<img$1class="$2"$3 data-action="zoom">';
+    $content = preg_replace($pattern, $replacement, $content);
+    return $content;
+} add_filter('the_content', 'add_zoom_data_attribute');
 
 
 /* --------------------------------------------------------------

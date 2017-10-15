@@ -56,7 +56,6 @@
 
                     <div class="project-tile-wrapper">
                         <a href="<?php echo get_the_permalink($project_ID); ?>" class="project-tile">
-                            <?php $rgb = hex2rgb($colour); ?>
                             <div class="project-tile-date"><?php the_time('Y'); ?></div>
                             <div class="project-tile-image" style="background-image: url(<?php echo $background_image[0]; ?>);<?php if ($colour): ?>background-color: <?php echo $colour; endif; ?>">
                                 <div class="project-tile-logo" style="background-image: url(<?php echo $logo[0]; ?>);"></div>

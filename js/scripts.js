@@ -1,4 +1,5 @@
 // @koala-prepend "jquery.js"
+// @koala-prepend "zoom.js"
 
 (function () {
     'use strict';
