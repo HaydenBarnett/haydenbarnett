@@ -2,7 +2,7 @@
     <div class="container-sm">
         <div class="project-title">
             <h1 class="animated fadeInLeft delay-1"><?php the_title(); ?></h1>
-            <label class="animated fadeInLeft delay-2"><?php the_time('Y'); ?></label>
+            <label><div class="animated fadeInDown delay-2"><?php the_time('Y'); ?></div></label>
         </div>
     </div>
     <div class="project-content animated fadeIn delay-3">
