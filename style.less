@@ -2,7 +2,7 @@
     Theme Name: Hayden Barnett
     Theme URI: http://github.com/haydenbarnett/haydenbarnett
     Description: www.haydenbarnett.com
-    Version: 2.0.3
+    Version: 2.0.5
     Author: Hayden Barnett
     Author URI: http://haydenbarnett.com/
     Tags: 
@@ -56,22 +56,28 @@ h6 {
 
 h1 {
     font-size: 36px;
-    letter-spacing: -1px;
+    letter-spacing: -0.8px;
 }
+
 h2 {
     font-size: 26px;
+    letter-spacing: -0.4px;
 }
+
 h3 {
     font-size: 22px;
 }
+
 h4 {
     font-size: 20px;
     text-transform: uppercase;
 }
+
 h5 {
     font-size: 15px;
     text-transform: uppercase;
 }
+
 h6 {
     font-size: 12px;
     text-transform: uppercase;
@@ -89,7 +95,7 @@ a {
         width: 0;
         height: 2px;
         background-color: transparent;
-        transition: width 0.4s ease-in-out, background-color 0.4s ease-in-out;
+        transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
     }
     &:visited {
         color: @color-black;
@@ -109,6 +115,7 @@ a {
 p {
     font-size: 20px;
     line-height: 1.7em;
+    letter-spacing: -0.45px;
 }
 
 figcaption {
@@ -259,6 +266,7 @@ hr {
         font-size: 21px;
         font-weight: 400;
         line-height: 1.2em;
+        letter-spacing: -0.3px;
         &:hover,
         &:focus,
         &:active {
@@ -352,7 +360,7 @@ hr {
     max-width: 100%;
     background-color: @color-white;
     cursor: pointer;
-    .transition(.4s ease);
+    .transition(.3s all);
     .project-tile-date {
         position: absolute;
         left: 0;
@@ -362,7 +370,7 @@ hr {
         font-weight: bold;
         letter-spacing: 2px;
         color: @color-grey;
-        .transition(.4s ease);
+        .transition(.3s all);
     }
     .project-tile-image {
         position: relative;
@@ -374,8 +382,8 @@ hr {
         overflow: hidden;
         vertical-align: top;
         display: inline-block;
+        .transition(.3s all);
         .background-cover();
-        .transition(.4s ease);
         .project-tile-logo {
             z-index: 3;
             position: absolute;
@@ -387,7 +395,7 @@ hr {
             background-size: 60px 60px;
             background-position: center center;
             background-repeat: no-repeat;
-            .transition(.4s opacity);
+            .transition(.3s opacity);
         }
         .project-tile-background {
             z-index: 1;
@@ -400,7 +408,7 @@ hr {
             -webkit-filter: blur(6px);
             filter: blur(6px);
             .background-cover();
-            .transition(.4s opacity, .4s transform);
+            .transition2(.3s opacity, .3s transform);
         }
     }
     .project-tile-info {
@@ -409,21 +417,20 @@ hr {
         height: 180px;
         width: 180px;
         float: left;
-        .transition(.4s ease);
+        .transition(.3s all);
         h2 {
             color: @color-black;
             position: absolute;
             padding-left: @padding-sm;
             top: 50%;
             transform: translateY(-50%);
-            .transition(.4s ease);
+            .transition(.3s all);
         }
     }
     &:after {
         display: none;
     }
     &:hover {
-        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
         .project-tile-date {
             left: -40px;
         }
@@ -510,6 +517,11 @@ hr {
             width: (@container-sm - @padding-sm*2) * 0.75;
             box-shadow: 0 12px 30px rgba(0,0,0,0.15);
             background-color: @color-border;
+            .transition(0.3s all);
+            &:hover {
+                -webkit-transform: translate3d(0,0,0) scale(.99);
+                transform: translate3d(0,0,0) scale(.99);
+            }
         }
         figcaption {
             float: right;
@@ -578,8 +590,8 @@ img.zoom-img {
     max-width: 100%;
     margin: 0 auto;
     padding: @padding-lg @padding-sm;
-    border: 1px solid @color-border;
-    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+    background-color: @color-border;
+    border: @border-width solid rgba(0,0,0,0.05);
     .feature-block-inner {
         width: @feature-block-inner;
         max-width: 100%;
@@ -605,6 +617,9 @@ img.zoom-img {
             display: inline-block;
             padding-right: 50px;
         }
+    }
+    .feature-block {
+        border-bottom: 0;
     }
 }
 
@@ -699,6 +714,10 @@ body.error404 {
 
 @media (max-width : 991px) {
 
+    ul, li, p, figcaption {
+        font-size: 17px;
+    }
+
     .project-content {
         h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
             width: @container-sm-tablet;
@@ -743,6 +762,7 @@ body.error404 {
     }
 
     #personal {
+        padding: 0 0 @padding-sm 0;
         h2 {
             margin-top: @padding-lg;
         }
@@ -760,7 +780,7 @@ body.error404 {
 
 }
 
-@media (max-width : 650px) {
+@media (max-width : 700px) {
     .project {
         label {
             position: relative;
@@ -768,6 +788,10 @@ body.error404 {
             top: auto;
             transform: rotate(0);
         }
+    }
+    .feature-block {
+        border-left: 0;
+        border-right: 0;
     }
     #footer {
         ul {
@@ -784,6 +808,10 @@ body.error404 {
 
     h1 {
         font-size: 28px;
+    }
+
+    h2 {
+        font-size: 24px;
     }
 
     ul, li, p, figcaption {
@@ -815,11 +843,13 @@ body.error404 {
         }
     }
 
+    .project-tile-wrapper {
+        padding: @padding-sm 0 @padding-sm 0;
+    }
+
     .project-tile {
-        box-shadow: 0 12px 30px rgba(0,0,0,0.15);
         .project-tile-image {
-            width: 60px;
-            transform: scale(1.1);
+            width: 80px;
             .project-tile-logo {
                 opacity: 1;
             }

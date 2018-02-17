@@ -2,20 +2,14 @@
    Mixins
    -------------------------------------------------------------- */
 
-.transition (@transition: 0.4s ease all) {
+.transition (@transition: 0.3s ease all) {
     -webkit-transition: @transition;  
-    -moz-transition:    @transition;
-    -ms-transition:     @transition;
-    -o-transition:      @transition;
     transition:         @transition; 
 }
 
-.transition (@transition: 0.4s ease all, @transition2: 0.4s ease all) {
-    -webkit-transition: @transition, @transition2;
-    -moz-transition:    @transition, @transition2;
-    -ms-transition:     @transition, @transition2;
-    -o-transition:      @transition, @transition2;
-    transition:         @transition, @transition2;
+.transition2 (@transition: 0.3s ease all, @transition2: 0.3s ease all) {
+    -webkit-transition: @transition, @transition2;  
+    transition:         @transition, @transition2; 
 }
 
 .background-cover() {
