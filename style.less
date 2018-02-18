@@ -2,7 +2,7 @@
     Theme Name: Hayden Barnett
     Theme URI: http://github.com/haydenbarnett/haydenbarnett
     Description: www.haydenbarnett.com
-    Version: 2.0.6
+    Version: 2.0.7
     Author: Hayden Barnett
     Author URI: http://haydenbarnett.com/
     Tags: 
@@ -625,10 +625,12 @@ img.zoom-img {
 
 .post-edit-link {
     position: fixed;
-    bottom: @padding-xs;
-    left: @padding-xs;
-    padding: @padding-xs;
+    bottom: 0;
+    left: 0;
+    padding: @padding-xs @padding-sm;
     color: @color-grey;
+    border-top: 2px solid @border-color;
+    border-right: 2px solid @border-color;
     font-size: 12px;
     font-weight: 600;
     text-align: center;
@@ -893,8 +895,7 @@ body.error404 {
     }
 
     #squiggle-container {
-        top: 60px;
-        overflow: hidden;
+        top: 10px;
     }
 
     #squiggle {
@@ -903,10 +904,24 @@ body.error404 {
         max-width: none;
         position: relative;
     }
+
+    #personal {
+        .personal-project {
+            padding: 10px 0;
+        }
+    }
     
 }
 
 @media (max-width : 479px) {
+
+}
+
+@media (max-width : 411px) {
+
+    #squiggle-container {
+        top: 40px;
+    }
 
 }
 

@@ -6,6 +6,8 @@
 
         <?php get_template_part('partials/section', 'projects'); ?>
 
+        <?php edit_post_link('edit'); ?>
+
     <?php endwhile; ?>
 
 <?php get_footer(); ?>

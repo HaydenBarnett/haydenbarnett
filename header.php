@@ -27,27 +27,23 @@
     <meta name="msapplication-TileImage" content="/mstile-144x144.png">
     <meta name="theme-color" content="#f5f5f5">
 
+    <?php wp_head(); ?>
+
     <!--[if lt IE 9]>
         <script src="<?php echo esc_url(get_template_directory_uri()); ?>/js/html5shiv.js"></script>
     <![endif]-->
 
-    <?php wp_head(); ?>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-31171572-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-31171572-1');
+    </script>
 
 </head>
 <body <?php body_class(); ?>>
-
-<?php if (!isset($_SERVER['HTTP_USER_AGENT']) || stripos($_SERVER['HTTP_USER_AGENT'], 'Speed Insights') === false): ?>
-
-    <script>
-      (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-      (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-      m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-      })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
-      ga('create', 'UA-31171572-1', 'auto');
-      ga('send', 'pageview');
-    </script>
-
-<?php endif; ?>
 
 <div id="wrapper">
     <div id="inner-wrapper">
