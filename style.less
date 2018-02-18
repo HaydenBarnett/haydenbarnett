@@ -2,7 +2,7 @@
     Theme Name: Hayden Barnett
     Theme URI: http://github.com/haydenbarnett/haydenbarnett
     Description: www.haydenbarnett.com
-    Version: 2.0.5
+    Version: 2.0.6
     Author: Hayden Barnett
     Author URI: http://haydenbarnett.com/
     Tags: 
@@ -107,7 +107,7 @@ a {
         color: @color-black;
         &:after {
             width: 100%;
-            background-color: @color-black;
+            background-color: @color-grey;
         }
     }
 }
@@ -309,12 +309,12 @@ hr {
 }
 
 #squiggle-shape {
-    fill: lighten(@color-grey, 20%);
+    fill: lighten(@color-grey, 25%);
 }
 
 #squiggle-path {
     fill: none;
-    stroke: lighten(@color-grey, 20%);
+    stroke: lighten(@color-grey, 25%);
     stroke-width: 45;
     stroke-linecap: round;
     clip-path: url(#squiggle-clip);
@@ -457,7 +457,7 @@ hr {
         margin: 0;
         position: absolute;
         left: -30px;
-        top: 20px;
+        top: 18px;
         transform: rotate(-90deg);
     }
 }
@@ -516,7 +516,7 @@ hr {
             float: left;
             width: (@container-sm - @padding-sm*2) * 0.75;
             box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-            background-color: @color-border;
+            background-color: @color-off-white;
             .transition(0.3s all);
             &:hover {
                 -webkit-transform: translate3d(0,0,0) scale(.99);
@@ -527,7 +527,7 @@ hr {
             float: right;
             width: (@container-sm - @padding-sm*2) * 0.25 - @padding-sm;
             padding-top: @padding-sm/2;
-            border-top: 2px solid @color-border;
+            border-top: 2px solid lighten(@border-color, 3%);
         }
     }
 }
@@ -590,8 +590,8 @@ img.zoom-img {
     max-width: 100%;
     margin: 0 auto;
     padding: @padding-lg @padding-sm;
-    background-color: @color-border;
-    border: @border-width solid rgba(0,0,0,0.05);
+    background-color: @color-off-white;
+    border: @border-width solid @border-color; // rgba(0,0,0,0.05);
     .feature-block-inner {
         width: @feature-block-inner;
         max-width: 100%;
@@ -724,6 +724,7 @@ body.error404 {
         }
         figure {
             width: @container-sm-tablet!important;
+            max-width: 100%!important;
             img {
                 width: 100%;
             }
@@ -818,9 +819,29 @@ body.error404 {
         font-size: 14px;
     }
 
+    #intro-title,
+    #projects,
+    #hello,
+    #footer,
+    .project {
+        padding: @padding-xs 0;
+    }
+
+    #footer {
+        padding-bottom: 0;
+    }
+
     .project-content {
         h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
             width: @container-sm-mobile;
+        }
+        figure {
+            margin-bottom: 40px;
+            padding: 0;
+            figcaption {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
         }
     }
 
@@ -848,10 +869,13 @@ body.error404 {
     }
 
     .project-tile {
+        height: 140px;
         .project-tile-image {
+            height: 140px;
             width: 80px;
             .project-tile-logo {
                 opacity: 1;
+                background-size: 50px 50px;
             }
             .project-tile-background {
                 opacity: 1;
@@ -862,6 +886,7 @@ body.error404 {
             left: -34px!important;
         }
         .project-tile-info {
+            height: 140px;
             transform: translateX(0)!important;
         }
         
