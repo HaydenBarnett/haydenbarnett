@@ -1,0 +1,33 @@
+/* --------------------------------------------------------------
+   Header
+   -------------------------------------------------------------- */
+
+#header {
+    
+}
+
+#logo {
+    padding: 43px 0;
+    a {
+        position: relative;
+        display: inline-block;
+        color: @color-grey;
+        font-size: 21px;
+        font-weight: 400;
+        line-height: 1.2em;
+        letter-spacing: -0.3px;
+        &:hover,
+        &:focus,
+        &:active {
+            color: @color-black;
+        }
+        &:focus,
+        &:active {
+            color: @color-grey;
+            &:after {
+                width: 0;
+                background-color: transparent;
+            }
+        }
+    }
+}

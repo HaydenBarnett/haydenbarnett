@@ -1,0 +1,178 @@
+/* --------------------------------------------------------------
+   Projects
+   -------------------------------------------------------------- */
+
+#projects {
+    padding: @padding-lg 0;
+}
+
+.project-tile-wrapper {
+    padding: @padding-sm @padding-lg @padding-lg 0;
+}
+
+.project-tile {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    background-color: @color-white;
+    cursor: pointer;
+    .transition(.3s all);
+    .project-tile-date {
+        position: absolute;
+        left: 0;
+        top: 10px;
+        transform: rotate(-90deg);
+        font-size: 12px;
+        font-weight: bold;
+        letter-spacing: 2px;
+        color: @color-grey;
+        .transition(.3s all);
+    }
+    .project-tile-image {
+        position: relative;
+        width: 100%;
+        height: 300px;
+        float: left;
+        border-radius: @border-radius;
+        vertical-align: top;
+        display: inline-block;
+        .background-cover();
+        transform-style: preserve-3d;
+        .transition(.3s ease box-shadow);
+        .project-tile-logo {
+            z-index: 3;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            background-size: 60px 60px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            transform: translateZ(40px) scale(0.8);
+            .transition(.3s all);
+        }
+    }
+    .project-tile-info {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        height: 100px;
+        float: left;
+        .transition(.3s all);
+        h2 {
+            color: @color-black;
+            padding: @padding-xs @padding-xs;
+            span {
+                position: relative;
+                z-index: 2;
+            }
+            &:after {
+                content: '';
+                display: block;
+                position: relative;
+                z-index: 1;
+                width: 0;
+                height: 12px;
+                left: -2px;
+                top: -15px;
+                background-color: transparent;
+                transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            }
+        }
+    }
+    &:after {
+        display: none;
+    }
+    &:hover, &:focus, &:active {
+        .project-tile-date {
+            transform: translateX(-40px) rotate(-90deg);
+        }
+        .project-tile-image {
+            box-shadow: 0 6px 18px fade(@color-black, 25%);
+        }
+        .project-tile-logo {
+            transform: translateZ(40px) scale(1);
+            opacity: 1;
+        }
+        .project-tile-info {
+            h2 {
+                &:after {
+                    width: 40%;
+                    background-color: lighten(@color-grey, 20%);
+                }
+            }
+        }
+    }
+}
+
+.project {
+    padding: @padding-lg 0;
+    label {
+        display: inline-block;
+        margin: 0;
+        position: absolute;
+        left: -30px;
+        top: 18px;
+        transform: rotate(-90deg);
+    }
+}
+
+
+/* --------------------------------------------------------------
+   Content
+   -------------------------------------------------------------- */
+
+
+#content {
+    opacity: 1;
+    -webkit-transition: transform, .5s, opacity .5s;
+    -moz-transition: transform, .5s, opacity .5s;
+    transition: transform, .5s, opacity .5s;
+    &.fade-out {
+        opacity: 0;
+        -webkit-transform: translate3d(0, @padding-lg, 0);
+        transform: translate3d(0, @padding-lg, 0);
+    }
+}
+
+.project-title {
+    
+}
+
+.project-content {
+    width: 100%;
+    margin-bottom: @padding-lg;
+    h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
+        max-width: 100%;
+        width: @container-sm;
+        padding: 0 @padding-sm;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    figure {
+        width: @container-sm!important;
+        max-width: 100%;
+        margin: 0 auto @padding-lg+@padding-md auto;
+        padding: 0 @padding-sm;
+        img {
+            float: left;
+            width: (@container-sm - @padding-sm*2) * 0.75;
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            background-color: @color-off-white;
+            .transition(0.3s all);
+            &:hover {
+                -webkit-transform: translate3d(0,0,0) scale(.99);
+                transform: translate3d(0,0,0) scale(.99);
+            }
+        }
+        figcaption {
+            float: right;
+            width: (@container-sm - @padding-sm*2) * 0.25 - @padding-sm;
+            padding-top: @padding-sm/2;
+            border-top: 2px solid lighten(@border-color, 3%);
+        }
+    }
+}

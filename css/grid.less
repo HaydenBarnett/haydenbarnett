@@ -1,0 +1,39 @@
+/* --------------------------------------------------------------
+   Wrappers
+   -------------------------------------------------------------- */
+
+#wrapper {
+    width: 100%;
+}
+
+#inner-wrapper,
+.container-sm,
+.container-lg {
+    position: relative;
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+#inner-wrapper {
+    width: @wrapper;
+}
+
+.container-sm {
+    width: @container-sm;
+    padding: 0 @padding-sm;
+}
+
+.container-lg {
+    width: @container-lg;
+    padding: 0 0 0 @padding-lg;
+}
+
+.half {
+    width: 50%;
+    float: left;
+}
+
+.third {
+    width: 33%;
+    float: left;
+}

@@ -38,7 +38,7 @@
         <?php if ($query->have_posts()): ?>
             <?php while($query->have_posts()): ?>
 
-                <div class="half">
+                <div class="third">
 
                     <?php
                         $project = $query->the_post();
@@ -60,12 +60,11 @@
                     <div class="project-tile-wrapper animated fadeInLeft delay-<?php echo $i; ?>">
                         <a href="<?php echo get_the_permalink($project_ID); ?>" class="project-tile">
                             <div class="project-tile-date"><?php the_time('Y'); ?></div>
-                            <div class="project-tile-image" style="background-image: url(<?php echo $background_image[0]; ?>);<?php if ($colour): ?>background-color: <?php echo $colour; endif; ?>">
+                            <div class="project-tile-image js-tilt" data-tilt style="background-image: url(<?php echo $background_image[0]; ?>);">
                                 <div class="project-tile-logo" style="background-image: url(<?php echo $logo[0]; ?>);"></div>
-                                <div class="project-tile-background" style="background-image: url(<?php echo $background_image[0]; ?>);"></div>
                             </div>
                             <div class="project-tile-info">
-                                <h2><?php echo get_the_title($project_ID); ?></h2>
+                                <h2><span><?php echo get_the_title($project_ID); ?></span></h2>
                             </div>
                         </a>
                     </div>

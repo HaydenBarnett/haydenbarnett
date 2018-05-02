@@ -1,0 +1,100 @@
+/* --------------------------------------------------------------
+   Intro
+   -------------------------------------------------------------- */
+
+#intro-title {
+    padding: @padding-lg 0;
+}
+
+#squiggle-container {
+    position: absolute;
+    top: 30px;
+    left: 5px;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+#squiggle {
+    width: 400px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+#squiggle-shape {
+    fill: lighten(@color-grey, 25%);
+}
+
+#squiggle-path {
+    fill: none;
+    stroke: lighten(@color-grey, 25%);
+    stroke-width: 45;
+    stroke-linecap: round;
+    clip-path: url(#squiggle-clip);
+
+    stroke-dasharray: 848 848;
+    stroke-dashoffset: 848;
+
+    animation-delay: 0.5s;
+    animation-duration: 1.5s;
+    animation-name: drawSquiggle;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes drawSquiggle {
+    from {
+        stroke-dashoffset: 848;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+@media (max-width: 991px) {
+
+    #squiggle-container {
+        top: 40px;
+        left: 0;
+    }
+
+    #squiggle {
+        width: 100%;
+    }
+
+}
+
+@media (max-width: 570px) {
+
+    #squiggle-container {
+        top: 10px;
+    }
+
+    #squiggle {
+        left: -50px;
+        width: 400px;
+        max-width: none;
+        position: relative;
+    }
+
+}
+
+
+@media (max-width : 411px) {
+
+    #squiggle-container {
+        top: 40px;
+    }    
+
+}
+
+@media (max-width : 367px) {
+
+    #squiggle {
+        left: 0;
+        max-width: 100%;
+    }
+
+}

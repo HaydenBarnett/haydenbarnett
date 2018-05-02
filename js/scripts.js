@@ -1,6 +1,7 @@
 // @koala-prepend "jquery.js"
 // @koala-prepend "zoom.js"
 // @koala-prepend "smoothState.js"
+// @koala-prepend "tilt.js"
 
 function addBlacklistClass() {
     $( 'a' ).each( function() {
@@ -13,6 +14,14 @@ function addBlacklistClass() {
 
 (function () {
     'use strict';
+
+    var $tilt = $('.js-tilt').tilt({
+        glare: true,
+        maxGlare: 0.2,
+        maxTilt: 15,
+        scale: 1.05,
+        speed: 3000,
+    });
 
     var $body = $('body');
 
@@ -44,6 +53,20 @@ function addBlacklistClass() {
         onAfter: function( $container ) {
             addBlacklistClass();
             $('#content').removeClass('fade-out');
+
+            $tilt.each(function () {
+                $(this).find('.js-tilt-glare').remove();
+                $(this).css({'will-change': '', 'transform': ''});
+                $(this).off('mousemove mouseenter mouseleave');
+            });
+
+            $tilt = $('.js-tilt').tilt({
+                glare: true,
+                maxGlare: 0.25,
+                maxTilt: 15,
+                scale: 1.05,
+                speed: 3000,
+            });
         }
     };
  
