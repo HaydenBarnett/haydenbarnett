@@ -4,7 +4,7 @@
 
         <?php get_template_part('partials/section', 'intro'); ?>		
 
-        <?php get_template_part('partials/section', 'projects'); ?>
+        <?php get_template_part('partials/section', 'home'); ?>
 
     <?php endwhile; ?>
 

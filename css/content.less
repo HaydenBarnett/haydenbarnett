@@ -1,0 +1,124 @@
+/* --------------------------------------------------------------
+   Content
+   -------------------------------------------------------------- */
+
+#content {
+    opacity: 1;
+    -webkit-transition: transform, .5s, opacity .5s;
+    -moz-transition: transform, .5s, opacity .5s;
+    transition: transform, .5s, opacity .5s;
+    &.fade-out {
+        opacity: 0;
+        -webkit-transform: translate3d(0, @padding-lg, 0);
+        transform: translate3d(0, @padding-lg, 0);
+    }
+}
+
+article {
+    padding: @padding-lg 0;
+    label {
+        display: inline-block;
+        margin: 0;
+        position: absolute;
+        left: -30px;
+        top: 18px;
+        transform: rotate(-90deg);
+    }
+}
+
+.project-title {
+    
+}
+
+.project-content {
+    width: 100%;
+    margin-bottom: @padding-lg;
+    h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
+        max-width: 100%;
+        width: @container-sm;
+        padding: 0 @padding-sm;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    figure {
+        width: @container-sm!important;
+        max-width: 100%;
+        margin: 0 auto @padding-lg+@padding-md auto;
+        padding: 0 @padding-sm;
+        img {
+            float: right;
+            width: (@container-sm - @padding-sm*2) * 0.75;
+            border-radius: @border-radius;
+            background-color: @color-off-white;
+            box-shadow: @shadow;
+            .transition(0.3s all);
+            &:hover {
+                transform: translateY(-6px);
+                box-shadow: @shadow-large;
+            }
+        }
+        figcaption {
+            float: left;
+            width: (@container-sm - @padding-sm*2) * 0.25 - @padding-sm;
+            padding-top: @padding-sm/2;
+            border-top: 3px solid @border-color;
+        }
+    }
+}
+
+/* --------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------- */
+
+@media (max-width: 991px) {
+
+    .project-content {
+        h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
+            width: @container-sm-tablet;
+        }
+        figure {
+            width: @container-sm-tablet!important;
+            max-width: 100%!important;
+            img {
+                width: 100%;
+            }
+            figcaption {
+                width: 100%;
+                float: left;
+                border: 0;
+            }
+        }
+    }
+
+}
+
+@media (max-width : 700px) {
+
+    article {
+        label {
+            position: relative;
+            left: auto;
+            top: auto;
+            transform: rotate(0);
+        }
+    }
+
+}
+
+@media (max-width: 570px) {
+
+    .project-content {
+        h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
+            width: @container-sm-mobile;
+        }
+        figure {
+            margin-bottom: 40px;
+            padding: 0;
+            figcaption {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
+        }
+    }
+
+}

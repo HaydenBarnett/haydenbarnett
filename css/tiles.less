@@ -1,10 +1,6 @@
 /* --------------------------------------------------------------
-   Projects
+   Tiles
    -------------------------------------------------------------- */
-
-#projects {
-    padding: @padding-lg 0;
-}
 
 .project-tile-wrapper {
     padding: @padding-sm @padding-lg @padding-lg 0;
@@ -91,7 +87,7 @@
             transform: translateX(-40px) rotate(-90deg);
         }
         .project-tile-image {
-            box-shadow: 0 6px 18px fade(@color-black, 25%);
+            box-shadow: @shadow-large;
         }
         .project-tile-logo {
             transform: translateZ(40px) scale(1);
@@ -108,71 +104,52 @@
     }
 }
 
-.project {
-    padding: @padding-lg 0;
-    label {
-        display: inline-block;
-        margin: 0;
-        position: absolute;
-        left: -30px;
-        top: 18px;
-        transform: rotate(-90deg);
-    }
-}
-
-
 /* --------------------------------------------------------------
-   Content
+   Responsive
    -------------------------------------------------------------- */
 
+@media (max-width: 991px) {
 
-#content {
-    opacity: 1;
-    -webkit-transition: transform, .5s, opacity .5s;
-    -moz-transition: transform, .5s, opacity .5s;
-    transition: transform, .5s, opacity .5s;
-    &.fade-out {
-        opacity: 0;
-        -webkit-transform: translate3d(0, @padding-lg, 0);
-        transform: translate3d(0, @padding-lg, 0);
+    .project-tile-wrapper {
+        padding: @padding-sm 45px @padding-lg 0;
     }
+
+    .project-tile {
+        .project-tile-image {
+            height: 250px;
+        }
+    }
+
 }
 
-.project-title {
-    
-}
+@media (max-width: 570px) {
 
-.project-content {
-    width: 100%;
-    margin-bottom: @padding-lg;
-    h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
-        max-width: 100%;
-        width: @container-sm;
-        padding: 0 @padding-sm;
-        margin-left: auto;
-        margin-right: auto;
+    .project-tile-wrapper {
+        padding: @padding-sm 0 @padding-sm 0;
     }
-    figure {
-        width: @container-sm!important;
-        max-width: 100%;
-        margin: 0 auto @padding-lg+@padding-md auto;
-        padding: 0 @padding-sm;
-        img {
-            float: left;
-            width: (@container-sm - @padding-sm*2) * 0.75;
-            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
-            background-color: @color-off-white;
-            .transition(0.3s all);
-            &:hover {
-                -webkit-transform: translate3d(0,0,0) scale(.99);
-                transform: translate3d(0,0,0) scale(.99);
+
+    .project-tile {
+        width: 160px;
+        margin-left: 20px;
+        .project-tile-image {
+            height: 220px;
+            width: 160px;
+            .project-tile-logo {
+                opacity: 1;
+                background-size: 50px 50px;
             }
         }
-        figcaption {
-            float: right;
-            width: (@container-sm - @padding-sm*2) * 0.25 - @padding-sm;
-            padding-top: @padding-sm/2;
-            border-top: 2px solid lighten(@border-color, 3%);
+        .project-tile-date {
+            transform: translateX(-34px) rotate(-90deg)!important;
         }
+        .project-tile-info {
+            height: auto;
+            transform: translateX(0)!important;
+            h2 {
+                padding: 15px 0;
+            }
+        }
+        
     }
+
 }

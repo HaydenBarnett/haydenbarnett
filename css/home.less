@@ -1,0 +1,68 @@
+/* --------------------------------------------------------------
+   Home
+   -------------------------------------------------------------- */
+
+#projects {
+    padding: @padding-lg 0;
+}
+
+#personal {
+    padding: @padding-lg 0 40px 0;
+    h2 {
+        margin-bottom: @padding-xs;
+    }
+    .personal-project {
+        padding: @padding-xs 0;
+        a {
+            font-weight: 400;
+        }
+    }
+}
+
+.feature-block {
+    width: 100%;
+    margin: 0 auto;
+    padding: @padding-lg @padding-sm;
+    background-color: @color-off-white;
+    border-top: @border-width solid @border-color;
+    border-bottom: @border-width solid @border-color;
+}
+
+
+/* --------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------- */
+
+@media (max-width: 991px) {
+
+    #personal {
+        padding: 0 0 @padding-sm 0;
+        h2 {
+            margin-top: @padding-lg;
+        }
+    }
+
+    .feature-block {
+        padding: @padding-md 0;
+    }
+
+}
+
+@media (max-width: 570px) {
+
+    #intro-title,
+    #projects,
+    #hello,
+    #footer,
+    article {
+        padding: @padding-xs 0;
+    }
+
+    .feature-block {
+        padding: @padding-md 0;
+        h1 {
+            font-size: 21px;
+        }
+    }
+
+}

@@ -1,19 +1,7 @@
 <?php
-    
-    $category_1 = 'Featured Projects';
-    $category_2 = 'Other Work';
-    $category_3 = 'Personal Projects';
+    $category = 'Featured Projects';
+    $category_slug = sanitize_title($category);
 
-    $category_1_slug = sanitize_title($category_1);
-    $category_2_slug = sanitize_title($category_2);
-    $category_3_slug = sanitize_title($category_3);
-
-    $i = 0;
-
-?>
-
-
-<?php
     $query = new WP_Query( array( 
         'post_type' => 'project',
         'posts_per_page' => -1,
@@ -21,16 +9,18 @@
             array (
                 'taxonomy' => 'project-categories',
                 'field' => 'slug',
-                'terms' => $category_1_slug,
+                'terms' => $category_slug,
             )
         ),
     ));
+
+    $i = 0;
 ?>
 
 <section id="projects">
 
     <div class="container-lg">
-        <label class="animated fadeInUp delay-2"><?php echo $category_1; ?></label>
+        <label class="animated fadeInUp delay-2"><?php echo $category; ?></label>
     </div>
 
     <div class="container-lg">
@@ -75,92 +65,6 @@
         <?php endif; ?>
 
         <?php wp_reset_query(); ?>
-
-    </div>
-</section>
-
-<?php get_template_part('partials/section', 'hello'); ?>
-
-<section id="personal">
-    <div class="container-sm">
-
-        <div class="half">
-
-            <?php
-                $query = new WP_Query( array( 
-                    'post_type' => 'project',
-                    'posts_per_page' => -1,
-                    'tax_query' => array(
-                        array (
-                            'taxonomy' => 'project-categories',
-                            'field' => 'slug',
-                            'terms' => $category_2_slug
-                        )
-                    ),
-                ));
-            ?>
-
-            <h2><?php echo $category_2; ?></h2>
-
-            <?php if ($query->have_posts()): ?>
-                <?php while($query->have_posts()): ?>
-
-                    <?php
-                        $project = $query->the_post();
-                        $project_ID = $project->ID;
-                    ?>
-
-                    <div class="personal-project">
-                        <a href="<?php echo get_the_permalink($project_ID); ?>">
-                            <?php echo get_the_title($project_ID); ?>
-                        </a>
-                    </div>
-
-                <?php endwhile; ?>
-            <?php endif; ?>
-
-            <?php wp_reset_query(); ?>
-
-        </div>
-
-        <div class="half">
-
-            <?php
-                $query = new WP_Query( array( 
-                    'post_type' => 'project',
-                    'posts_per_page' => -1,
-                    'tax_query' => array(
-                        array (
-                            'taxonomy' => 'project-categories',
-                            'field' => 'slug',
-                            'terms' => $category_3_slug
-                        )
-                    ),
-                ));
-            ?>
-
-            <h2><?php echo $category_3; ?></h2>
-
-            <?php if ($query->have_posts()): ?>
-                <?php while($query->have_posts()): ?>
-
-                    <?php
-                        $project = $query->the_post();
-                        $project_ID = $project->ID;
-                    ?>
-
-                    <div class="personal-project">
-                        <a href="<?php echo get_the_permalink($project_ID); ?>">
-                            <?php echo get_the_title($project_ID); ?>
-                        </a>
-                    </div>
-
-                <?php endwhile; ?>
-            <?php endif; ?>
-
-            <?php wp_reset_query(); ?>
-
-        </div>
 
     </div>
 </section>

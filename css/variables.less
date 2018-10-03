@@ -27,7 +27,12 @@
 @container-sm-mobile: 100%;
 @container-lg-mobile: 100%;
 
-@border-width: 1px;
-@border-color: #f0ece0;
 @border-radius: 3px;
 @border-radius-lg: 6px;
+
+@border-width: 1px;
+@border-color: #f0ece0;
+@border: @border-width solid @border-color;
+
+@shadow: 0 6px 18px fade(@color-black, 15%);
+@shadow-large: 0 6px 18px fade(@color-black, 25%);

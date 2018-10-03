@@ -1,4 +1,5 @@
-+function () { "use strict";
++function () {
+  "use strict";
   var OFFSET = 80
 
   // From http://youmightnotneedjquery.com/#offset
@@ -161,15 +162,15 @@
     function calculateZoom() {
       targetImage.offsetWidth // repaint before animating
 
-      var originalFullImageWidth  = fullWidth
+      var originalFullImageWidth = fullWidth
       var originalFullImageHeight = fullHeight
 
       var maxScaleFactor = originalFullImageWidth / targetImage.width
 
       var viewportHeight = window.innerHeight - OFFSET
-      var viewportWidth  = window.innerWidth - OFFSET
+      var viewportWidth = window.innerWidth - OFFSET
 
-      var imageAspectRatio    = originalFullImageWidth / originalFullImageHeight
+      var imageAspectRatio = originalFullImageWidth / originalFullImageHeight
       var viewportAspectRatio = viewportWidth / viewportHeight
 
       if (originalFullImageWidth < viewportWidth && originalFullImageHeight < viewportHeight) {
@@ -185,7 +186,7 @@
       targetImage.offsetWidth // repaint before animating
 
       var imageOffset = offset(targetImage)
-      var scrollTop   = window.pageYOffset
+      var scrollTop = window.pageYOffset
 
       var viewportY = scrollTop + (window.innerHeight / 2)
       var viewportX = (window.innerWidth / 2)
