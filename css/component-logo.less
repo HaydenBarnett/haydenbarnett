@@ -1,0 +1,39 @@
+/* --------------------------------------------------------------
+   Component - Logo
+   -------------------------------------------------------------- */
+
+#logo {
+    a {
+        position: relative;
+        display: inline-block;
+        color: @color-black;
+        font-size: 20px;
+        font-weight: 700;
+        line-height: 1.2em;
+        letter-spacing: -0.3px;
+        &:before {
+            content: '';
+            position: absolute;
+            width: 16px;
+            height: 16px;
+            display: block;
+            left: -32px;
+            top: 5px;
+            border-radius: 16px;
+            border: 2px solid @color-off-gold;
+            transition: .3s all;
+        }
+        &:after {
+            display: none;
+        }
+        &:hover,
+        &:focus,
+        &:active {
+            color: @color-black;
+            &:before {
+                border-color: @color-gold;
+                transform: scale(1.2);
+            }
+        }
+    }
+}

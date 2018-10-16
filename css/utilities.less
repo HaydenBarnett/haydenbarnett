@@ -29,10 +29,6 @@
 
 .clearfix:before,
 .clearfix:after,
-.container-sm:before,
-.container-sm:after,
-.container-lg:before,
-.container-lg:after,
 .project-content figure:before,
 .project-content figure:after {
     display: table;
@@ -40,12 +36,53 @@
 }
 
 .clearfix:after,
-.container-sm:after,
-.container-lg:after,
 .project-content figure:after {
     clear: both;
 }
 
+/* --------------------------------------------------------------
+   Buttons
+   -------------------------------------------------------------- */
+
+.btn {
+    font-weight: 500;
+    font-size: @font-size;
+    border-radius: @border-radius;
+    background-color: @color-grey;
+    border: @border;
+    padding: 12px 24px;
+    text-align: center;
+    transition: .3s ease all;
+    &:after {
+        display: none;
+    }
+}
+    
+.btn-primary {
+    color: @color-white;
+    background-color: @color-gold;
+    border-color: @color-gold;
+    &:hover,
+    &:focus,
+    &:active {
+        color: @color-white;
+        background-color: lighten(@color-gold, 10%);
+        border-color: lighten(@color-gold, 10%);
+    }
+}
+
+.btn-secondary {
+    color: @color-black;
+    background-color: transparent;
+    border-color: @color-gold;
+    &:hover,
+    &:focus,
+    &:active {
+        color: @color-gold;
+        background-color: transparent;
+        border-color: fade(@color-gold, 50%);
+    }
+}
 
 /* --------------------------------------------------------------
    Wordpress
@@ -73,7 +110,7 @@
     border-top: 2px solid @border-color;
     border-right: 2px solid @border-color;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 700;
     text-align: center;
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -86,7 +123,6 @@
         color: @color-black;
     }
 }
-
 
 /* --------------------------------------------------------------
    Zoom
@@ -126,48 +162,62 @@ img.zoom-img {
     opacity: 1;
 }
 
-
 /* --------------------------------------------------------------
-   Ripple
+   Ripples
    -------------------------------------------------------------- */
 
-.ripple {
-    height: 10px;
-    width: 10px;
-    border-radius: 10px;
-    background-color: @color-grey;
+.click-ripple {
+    width: 64px;
+    height: 64px;
     position: absolute;
     z-index: -1;
-    animation-duration: 0.5s;
-    animation-name: ripple;
-    animation-timing-function: ease-out;
     -webkit-user-select: none;
     user-select: none;
-    &.ripple-white {
-        animation-delay: 40ms;
-        -webkit-animation-delay: 40ms;
-        background-color: @color-white;
-        animation-name: rippleMask;
+    div {
+        position: absolute;
+        border: 4px solid @color-gold;
+        opacity: 1;
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        animation: ripple 1s cubic-bezier(0, 0.2, 0.8, 1);
+    }
+}
+
+#loading {
+    display: none;
+    position: fixed;
+    width: 64px;
+    height: 64px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 100;
+    &.active {
+        display: block;
+    }
+    div {
+        position: absolute;
+        border: 4px solid @color-gold;
+        opacity: 1;
+        border-radius: 50%;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        animation: ripple 1s cubic-bezier(0, 0.2, 0.8, 1) infinite;
     }
 }
 
 @keyframes ripple {
-    from {
-        transform: scale(1);
+    0% {
+        width: 4px;
+        height: 4px;
+        opacity: 1;
     }
-    to {
-        background-color: @color-white;
-        transform: scale(10);
-        opacity: 0;
-    }
-}
-
-@keyframes rippleMask {
-    from {
-        transform: scale(1);
-    }
-    to {
-        transform: scale(10);
+    100% {
+        width: 58px;
+        height: 58px;
         opacity: 0;
     }
 }

@@ -7,15 +7,20 @@
    General
    -------------------------------------------------------------- */
 
+@-ms-viewport {
+    width: device-width;
+}
+
 *, 
-*:after, 
-*:before  {
+*::before,
+*::after {
     box-sizing: inherit;
 }
 
 html {
     box-sizing: border-box;
     overflow-y: scroll;
+    -ms-overflow-style: scrollbar;
     line-height: 1.4;
     font-size: 1em;
 }

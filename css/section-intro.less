@@ -1,0 +1,178 @@
+/* --------------------------------------------------------------
+   Section - Intro
+   -------------------------------------------------------------- */
+
+.section-intro {
+    position: relative;
+    .section-content {
+        width: 100%;
+        max-width: 400px;
+        padding: @padding-xl 0 @padding-lg 0;
+    }
+}
+
+.intro {
+    position: relative;
+    background-color: @color-off-white;
+    border-radius: @border-radius-lg;
+    height: 450px;
+}
+
+.intro-title {
+    padding: 100px 0 0;
+    width: 620px;
+    display: inline-block;
+    position: relative;
+    left: 430px;
+    z-index: 3;
+}
+
+.intro-image {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    z-index: 2;
+    img {
+        height: 475px;
+        width: 450px;
+        border-bottom-left-radius: @border-radius-lg;
+    }
+}
+
+.intro-heading {
+    font-size: 60px;
+    line-height: 1.1em;
+    margin: 0 0 40px 0;
+}
+
+.intro-position {
+    font-weight: 500;
+}
+
+.divider {
+    font-weight: 500;
+    color: @color-grey;
+}
+
+.intro-location {
+    font-weight: 500;
+    color: @color-grey;
+}
+
+.intro-buttons {
+    position: absolute;
+    right: 0;
+    bottom: -23px;
+    .btn {
+        margin-left: 20px;
+    }
+}
+
+.squiggle-container {
+    position: absolute;
+    right: -40px;
+    bottom: 0;
+    z-index: 1;
+}
+
+#squiggle-svg {
+    width: 890px;
+    max-width: 100%;
+    margin: 0 auto;
+    display: block;
+}
+
+#squiggle-shape {
+    fill: @color-off-gold;
+}
+
+#squiggle-path {
+    fill: none;
+    stroke: @color-off-gold;
+    stroke-width: 45;
+    stroke-linecap: round;
+    clip-path: url(#squiggle-clip);
+
+    stroke-dasharray: 848 848;
+    stroke-dashoffset: 848;
+
+    animation-delay: 0.5s;
+    animation-duration: 1.5s;
+    animation-name: drawSquiggle;
+    animation-timing-function: ease-out;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes drawSquiggle {
+    from {
+        stroke-dashoffset: 848;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+/* --------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------- */
+
+
+@media (max-width: 1199px) {
+    .intro-title {
+        width: 500px;
+        padding-top: 70px;
+    }
+    .intro-heading {
+        margin-bottom: 30px;
+    }
+    .squiggle-container {
+
+    }
+    #squiggle-svg {
+        width: 700px;
+    }
+}
+
+@media (max-width: 991px) {
+    .intro-image {
+        img {
+            width: 180px;
+            height: auto;
+        }
+    }
+    .intro-title {
+        left: 170px;
+    }
+    #squiggle-svg {
+        width: 620px;
+    }
+}
+
+@media (max-width: 767px) {
+    .intro {
+        height: 600px;
+    }
+    .intro-title {
+        left: 60px;
+    }
+}
+
+@media (max-width: 570px) {
+    .squiggle-container {
+        top: -20px;
+        left: 20px;
+    }
+    #squiggle-svg {
+        width: 400px;
+    }
+}
+
+
+@media (max-width : 411px) {
+    
+}
+
+@media (max-width : 367px) {
+    
+}

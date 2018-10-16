@@ -10,8 +10,15 @@ html {
 body {
     background-color: @color-white;
     font-family: @font-family-primary;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 400;
+}
+
+::selection {
+    background: @color-gold;
+}
+::-moz-selection {
+    background: @color-gold;
 }
 
 h1,
@@ -21,12 +28,10 @@ h4,
 h5,
 h6 {
     color: @color-black;
-    font-weight: 600;
+    font-weight: 700;
     line-height: 1.4em;
     padding: 0;
     margin: 0;
-    -webkit-user-select: none;
-    user-select: none;
     a {
         -webkit-user-select: auto;
         user-select: auto;        
@@ -35,12 +40,10 @@ h6 {
 
 h1 {
     font-size: 36px;
-    letter-spacing: -0.8px;
 }
 
 h2 {
     font-size: 26px;
-    letter-spacing: -0.4px;
 }
 
 h3 {
@@ -49,7 +52,6 @@ h3 {
 
 h4 {
     font-size: 20px;
-    text-transform: uppercase;
 }
 
 h5 {
@@ -65,14 +67,20 @@ h6 {
 a {
     color: @color-black;
     text-decoration: none;
-    font-weight: 600;
+    font-weight: 500;
     display: inline-block;
-    transition: 0.5s ease color;
+    position: relative;
+    transition: 0.3s ease color;
+    z-index: 1;
     &:after {
         content: '';
         display: block;
         width: 0;
-        height: 2px;
+        height: 0.6em;
+        left: -5%;
+        bottom: 0.1em;
+        z-index: -1;
+        position: absolute;
         background-color: transparent;
         transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
     }
@@ -85,29 +93,52 @@ a {
     &:active {
         color: @color-black;
         &:after {
+            width: 110%;
+            background-color: @color-off-gold;
+        }
+    }
+    &.highlight {
+        &:after {
+            width: 110%;
+            background-color: @color-off-gold;
+        }
+        &:hover,
+        &:focus,
+        &:active {
+            &:after {
+                background-color: fade(@color-gold, 50%);
+            }
+        }
+    }
+    &.underline {
+        &:after {
+            left: 0;
             width: 100%;
-            background-color: @color-grey;
+            height: .2em;
+            background-color: @color-gold;
+        }
+        &:hover,
+        &:focus,
+        &:active {
+            color: @color-gold;
+            &:after {
+                width: 100%;
+                background-color: fade(@color-gold, 50%);
+            }
         }
     }
 }
 
-p {
-    font-size: 20px;
-    line-height: 1.7em;
-    letter-spacing: -0.45px;
-}
-
-figcaption {
-    font-size: 18px;
-    line-height: 1.7em;
+ul, li, p, figcaption {
+    font-size: @font-size;
+    line-height: 1.8em;
 }
 
 label {
     color: @color-grey;
     font-size: 12px;
-    font-weight: 600;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 2px;
     display: block;
     margin-bottom: 20px;
     -webkit-user-select: none;
@@ -119,11 +150,10 @@ hr {
     margin: @padding-lg 0;
 }
 
-
 @media (max-width: 991px) {
 
     ul, li, p, figcaption {
-        font-size: 17px;
+        // font-size: @font-size;
     }
 
 }

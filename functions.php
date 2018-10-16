@@ -265,6 +265,7 @@ function queue_scripts() {
     $theme_version = $theme['Version'];
 
     wp_enqueue_style('theme-styles', get_stylesheet_uri(), '', $theme_version);
+    wp_enqueue_style('typekit-fonts', 'https://use.typekit.net/zbk2fbp.css');
     wp_enqueue_style('font-work-sans', 'https://fonts.googleapis.com/css?family=Work+Sans:400,600');
 
     wp_enqueue_script('theme-scripts', get_template_directory_uri() . '/js/scripts.min.js', '', $theme_version, true);

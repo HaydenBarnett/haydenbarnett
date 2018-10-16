@@ -1,0 +1,42 @@
+/* --------------------------------------------------------------
+   Section - Contact
+   -------------------------------------------------------------- */
+
+#section-contact {
+    padding: @padding-lg 0;
+    a {
+        font-weight: 700;
+    }
+    h1 {
+        margin-top: @padding-md;
+        margin-bottom: @padding-md;
+    }
+    h4 {
+        color: @color-grey;
+        margin-bottom: @padding-sm;
+    }
+}
+
+.contact-block {
+    width: 100%;
+    margin: 0 auto;
+    padding: @padding-xl @padding-sm @padding-lg;
+    background-color: @color-off-white;
+    text-align: center;
+    border-radius: @border-radius-lg;
+}
+
+@media (max-width: 991px) {
+    .contact-block {
+        padding: @padding-md 0;
+    }
+}
+
+@media (max-width: 570px) {
+    .contact-block {
+        padding: @padding-md 0;
+        h1 {
+            font-size: 21px;
+        }
+    }
+}

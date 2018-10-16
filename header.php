@@ -45,16 +45,12 @@
 </head>
 <body <?php body_class(); ?>>
 
+<div id="loading"><div></div></div>
+
 <div id="wrapper">
     <div id="inner-wrapper">
-
-        <header id="header" class="clearfix">
-            <div class="container-sm">
-                <div id="logo">
-                    <a href="<?php echo esc_url(home_url()); ?>">Hayden Barnett</a>
-                </div>
-            </div>
-        </header>
+        
+        <?php get_template_part('partials/section', 'header'); ?>
 
         <div id="content">
-            <div class="animated fadeInDown">
+            <div class="animated fadeIn">

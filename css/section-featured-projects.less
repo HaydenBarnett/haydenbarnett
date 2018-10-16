@@ -1,0 +1,173 @@
+/* --------------------------------------------------------------
+   Section - Featured Projects
+   -------------------------------------------------------------- */
+
+#section-featured-projects {
+    padding: 0 0 @padding-md 0;
+}
+
+.featured-projects-heading {
+    position: relative;
+    padding-bottom: @padding-xl;
+    &:after {
+        content: "";
+        display: block;
+        width: 120px;
+        height: 1px;
+        position: absolute;
+        left: 0;
+        top: 14px;
+        background-color: @color-grey;
+    }
+}
+
+.project-tile-wrapper {
+    width: 240px;
+}
+
+.project-tile {
+    position: relative;
+    display: block;
+    width: 100%;
+    max-width: 100%;
+    background-color: @color-white;
+    cursor: pointer;
+    .transition(.3s all);
+    .project-tile-date {
+        position: absolute;
+        left: 0;
+        top: 10px;
+        transform: rotate(-90deg);
+        font-size: 14px;
+        font-weight: 700;
+        color: @color-grey;
+        .transition(.3s all);
+    }
+    .project-tile-image {
+        position: relative;
+        width: 100%;
+        height: 340px;
+        border-radius: @border-radius-lg;
+        vertical-align: top;
+        display: inline-block;
+        .background-cover();
+        transform-style: preserve-3d;
+        .transition(.3s ease box-shadow);
+        .project-tile-logo {
+            z-index: 3;
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            opacity: 0;
+            background-size: 60px 60px;
+            background-position: center center;
+            background-repeat: no-repeat;
+            transform: translateZ(40px) scale(0.8);
+            transition: .3s all;
+        }
+    }
+    .project-tile-info {
+        display: inline-block;
+        position: relative;
+        width: 100%;
+        height: 100px;
+        text-align: center;
+        transition: .3s all;
+        h2 {
+            padding: @padding-xs @padding-xs;
+            span {
+                position: relative;
+                z-index: 2;
+            }
+            &:after {
+                content: '';
+                display: block;
+                position: relative;
+                z-index: 1;
+                width: 0;
+                height: 12px;
+                left: 0;
+                right: 0;
+                margin: 0 auto;
+                top: -15px;
+                background-color: transparent;
+                transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out;
+            }
+        }
+    }
+    &:after {
+        display: none;
+    }
+    &:hover, &:focus, &:active {
+        .project-tile-date {
+            transform: translateX(-40px) rotate(-90deg);
+        }
+        .project-tile-image {
+            box-shadow: @shadow-lg;
+        }
+        .project-tile-logo {
+            transform: translateZ(40px) scale(1);
+            opacity: 1;
+        }
+        .project-tile-info {
+            h2 {
+                &:after {
+                    width: 40%;
+                    background-color: @color-gold;
+                }
+            }
+        }
+    }
+}
+
+/* --------------------------------------------------------------
+   Responsive
+   -------------------------------------------------------------- */
+
+@media (max-width: 991px) {
+
+    .project-tile-wrapper {
+        padding: @padding-sm 45px @padding-lg 0;
+    }
+
+    .project-tile {
+        .project-tile-image {
+            height: 250px;
+        }
+    }
+
+}
+
+@media (max-width: 570px) {
+
+    .project-tile-wrapper {
+        padding: @padding-sm 0 @padding-sm 0;
+    }
+
+    .project-tile {
+        width: 160px;
+        margin-left: 20px;
+        .project-tile-image {
+            height: 220px;
+            width: 160px;
+            .project-tile-logo {
+                opacity: 1;
+                background-size: 50px 50px;
+            }
+        }
+        .project-tile-date {
+            transform: translateX(-34px) rotate(-90deg)!important;
+        }
+        .project-tile-info {
+            height: auto;
+            transform: translateX(0)!important;
+            h2 {
+                padding: 15px 0;
+            }
+        }
+        
+    }
+
+}
