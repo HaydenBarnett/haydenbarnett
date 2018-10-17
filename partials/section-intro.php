@@ -28,12 +28,12 @@
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-lg-6">
 				<div class="section-content animated fadeInLeft delay-4">
 					<p>Currently working at <a class="highlight" href="https://www.tyro.com" target="_blank">Tyro</a> and running my growth agency - <a class="highlight" href="https://withsurge.com" target="_blank">Surge</a> in Sydney, Australia. I’m a front-end web developer, digital designer and illustrator with a decade of experience.</p>
 				</div>
 			</div>
-			<div class="col-md-6">
+			<div class="col-lg-6">
 				<div class="section-content animated fadeInLeft delay-5">
 					<p>Connect with me on <a class="highlight" href="https://www.linkedin.com/in/haydenbarnett">LinkedIn</a> or send me an <a class="highlight" href="mailto:hello@haydenbarnett.com">email</a> for my work availability, to organise a meetup or to ask me anything.</p>
 					<p>You can find a collection of my work below.</p>

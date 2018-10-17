@@ -19,8 +19,6 @@
     ));
 ?>
 
-<h4><?php echo $category; ?></h4>
-
 <?php if ($query->have_posts()): ?>
     <?php while($query->have_posts()): ?>
 
@@ -28,11 +26,12 @@
             $project = $query->the_post();
             $project_ID = $project->ID;
         ?>
-
-        <div class="personal-project">
-            <a class="highlight" href="<?php echo get_the_permalink($project_ID); ?>">
-                <?php echo get_the_title($project_ID); ?>
-            </a>
+        <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
+            <div class="personal-project">
+                <a href="<?php echo get_the_permalink($project_ID); ?>">
+                    <?php echo get_the_title($project_ID); ?>
+                </a>
+            </div>
         </div>
 
     <?php endwhile; ?>

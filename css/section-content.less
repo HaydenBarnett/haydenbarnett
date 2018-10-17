@@ -15,7 +15,7 @@ article {
 }
 
 .project-title {
-    
+    margin-bottom: @padding-sm;
 }
 
 .project-content {
@@ -46,11 +46,49 @@ article {
             }
         }
         figcaption {
+            position: relative;
             float: left;
-            width: (@container - @padding-sm*2) * 0.25 - @padding-sm;
+            width: 220px;
             padding-top: @padding-sm/2;
-            border-top: 3px solid @color-off-gold;
             font-weight: 500;
+            &:after {
+                content: '';
+                display: block;
+                position: absolute;
+                width: 20px;
+                height: 3px;
+                background-color: @color-off-gold;
+                top: 0;
+            }
+            
+        }
+        @media (max-width: 1109px) {
+            figcaption {
+                width: 120px;
+            }
+        }
+        @media (max-width: 1009px) {
+            width: 100%!important;
+            max-width: 100%;
+            img {
+                width: 100%;
+            }
+            figcaption {
+                width: 100%;
+                float: left;
+                border: 0;
+                &:after {
+                    display: none;
+                }
+            }
+        }
+        @media (max-width: 575px) {
+            margin-bottom: 40px;
+            padding: 0;
+            figcaption {
+                padding-left: 30px;
+                padding-right: 30px;
+            }
         }
     }
 }
@@ -64,18 +102,6 @@ article {
     .project-content {
         h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
             width: @container-sm-tablet;
-        }
-        figure {
-            width: @container-sm-tablet!important;
-            max-width: 100%!important;
-            img {
-                width: 100%;
-            }
-            figcaption {
-                width: 100%;
-                float: left;
-                border: 0;
-            }
         }
     }
 
@@ -94,19 +120,11 @@ article {
 
 }
 
-@media (max-width: 570px) {
+@media (max-width: 575px) {
 
     .project-content {
         h1, h2, h3, h4, h5, h6, p, ul, ol, blockquote {
             width: @container-sm-mobile;
-        }
-        figure {
-            margin-bottom: 40px;
-            padding: 0;
-            figcaption {
-                padding-left: 30px;
-                padding-right: 30px;
-            }
         }
     }
 

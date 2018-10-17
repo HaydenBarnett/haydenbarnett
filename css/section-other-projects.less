@@ -3,28 +3,35 @@
    -------------------------------------------------------------- */
 
 #personal {
-    padding: @padding-lg 0 40px 0;
-    h4 {
-        margin-bottom: @padding-xs;
+    padding: @padding-md 0 @padding-lg 0;
+    .featured-projects-heading {
+        padding-bottom: @padding-md;
     }
     .personal-project {
-        padding: 15px 0;
+        a {
+            display: block;
+            border: 1px solid @color-off-gold;
+            border-radius: @border-radius;
+            padding: 24px 10px;
+            margin: 10px 0;
+            text-align: center;
+            transition: .4s all;
+            &:hover, &:active, &:focus {
+                border-color: @color-gold;
+            }
+            &:after {
+                display: none;
+            }
+        }
     }
 }
 
 @media (max-width: 991px) {
     #personal {
         padding: 0 0 @padding-sm 0;
-        h4 {
-            margin-top: @padding-lg;
-        }
     }
 }
 
-@media (max-width: 570px) {
-    #personal {
-        .personal-project {
-            padding: 10px 0;
-        }
-    }
+@media (max-width: 575px) {
+    
 }

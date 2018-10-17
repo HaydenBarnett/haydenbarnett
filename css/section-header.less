@@ -8,3 +8,27 @@
         text-align: right;
     }
 }
+
+@media (max-width: 991px) {
+	#section-header {
+		padding: @padding-lg 0;
+	}
+}
+
+@media (max-width: 767px) {
+	#section-header {
+		padding: @padding-lg 0;
+		#logo {
+			text-align: center;
+			a {
+				&:before {
+					display: none;
+				}
+			}
+		}
+		.social {
+			margin-top: @padding-xs;
+			text-align: center;
+		}
+	}
+}

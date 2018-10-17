@@ -41,7 +41,7 @@
             <?php if ($query->have_posts()): ?>
                 <?php while($query->have_posts()): ?>
 
-                    <div class="col-lg-3 col-md-4 col-sm-2">
+                    <div class="col-xl-3 col-lg-4 col-md-4 col-sm-6">
 
                         <?php
                             $project = $query->the_post();
@@ -67,7 +67,7 @@
                                     <div class="project-tile-logo" style="background-image: url(<?php echo $logo[0]; ?>);"></div>
                                 </div>
                                 <div class="project-tile-info">
-                                    <h2><span><?php echo get_the_title($project_ID); ?></span></h2>
+                                    <h3><span><?php echo get_the_title($project_ID); ?></span></h3>
                                 </div>
                             </a>
                         </div>

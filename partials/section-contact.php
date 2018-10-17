@@ -4,7 +4,7 @@
             <div class="col-12">
                 <div class="contact-block">
                     <?php get_template_part('partials/component', 'social'); ?>
-                    <h1><a class="highlight" href="mailto:hello@haydenbarnett.com">hello@haydenbarnett.com</a></h1>
+                    <h2><a class="highlight" href="mailto:hello@haydenbarnett.com">hello@haydenbarnett.com</a></h2>
                     <h4>Say hi!</h4>
                 </div>
             </div>

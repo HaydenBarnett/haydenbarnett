@@ -40,8 +40,6 @@
 }
 
 .intro-heading {
-    font-size: 60px;
-    line-height: 1.1em;
     margin: 0 0 40px 0;
 }
 
@@ -135,6 +133,21 @@
 }
 
 @media (max-width: 991px) {
+    #intro-buttons {
+
+    }
+    .section-intro {
+        .section-content {
+            max-width: 100%;
+            padding: 0;
+            &.delay-4 {
+                padding-top: @padding-lg;
+            }
+            &.delay-5 {
+                padding-bottom: @padding-lg;
+            }
+        }
+    }
     .intro-image {
         img {
             width: 180px;
@@ -147,32 +160,75 @@
     #squiggle-svg {
         width: 620px;
     }
+
 }
 
 @media (max-width: 767px) {
     .intro {
-        height: 600px;
+        height: 450px;
     }
     .intro-title {
         left: 60px;
+        width: 330px;
+        padding-top: 60px;
+    }
+    #squiggle-svg {
+        width: 420px;
     }
 }
 
-@media (max-width: 570px) {
+@media (max-width: 599px) {
+    .intro {
+        height: 300px;
+    }
+    .intro-buttons {
+        left: 0;
+        text-align: center;
+        .btn {
+            margin-right: 20px;
+        }
+    }
+    .intro-title {
+        width: 100%;
+        left: 0;
+        padding-left: 50px;
+        padding-right: 50px;
+    }
     .squiggle-container {
         top: -20px;
         left: 20px;
+        right: 0;
     }
     #squiggle-svg {
         width: 400px;
     }
+    .intro-image {
+        display: none;
+    }
 }
 
-
-@media (max-width : 411px) {
-    
+@media (max-width: 411px) {
+    .intro-title {
+        padding-left: 30px;
+        padding-right: 30px;
+    }
+    .intro-buttons {
+        .btn {
+            margin-left: 5px;
+            margin-right: 5px;
+        }
+    }
 }
 
-@media (max-width : 367px) {
+@media (max-width: 359px) {
+
+    .intro-title {
+        padding-left: 15px;
+        padding-right: 10px;
+    }
+
+    .intro-heading {
+        width: 260px;
+    }
     
 }
