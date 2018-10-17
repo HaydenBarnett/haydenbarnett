@@ -4,7 +4,7 @@
 			<div class="col-12">
 				<div class="intro">
 					<div class="intro-image">
-						<img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/hayden-intro-profile.png" width="450" height="475">
+						<img src="<?php echo esc_url(get_template_directory_uri()); ?>/img/hayden-intro-profile.png" srcset="<?php echo esc_url(get_template_directory_uri()); ?>/img/hayden-intro-profile.png 1x, <?php echo esc_url(get_template_directory_uri()); ?>/img/hayden-intro-profile@2x.png 2x" width="450" height="475">
 					</div>
 					<div class="intro-title animated fadeInLeft delay-1">
 						<h1 class="intro-heading">Front-end developer & digital designer.</h1>
