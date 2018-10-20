@@ -10,7 +10,6 @@
         </div>
     </div>
     <div class="project-content animated fadeIn delay-3">
-        <?php echo get_field('sidebar_content'); ?>
         <?php the_content(); ?>
     </div>
 </article>
